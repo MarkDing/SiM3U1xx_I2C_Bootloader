@@ -350,7 +350,7 @@
               <MiscControls>--c99 --gnu</MiscControls>
               <Define>NDEBUG,  MCU_FAMILY=SiM3U1, COMM_PROTOCOL=UART</Define>
               <Undefine></Undefine>
-              <IncludePath>.\framework;.\src\framework;C:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU;C:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules;C:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx</IncludePath>
+              <IncludePath>..\src\framework;C:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU;C:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules;C:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -392,19 +392,19 @@
           <GroupName>Startup and Main</GroupName>
           <Files>
             <File>
-              <FileName>retarget_arm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\framework\retarget_arm.c</FilePath>
-            </File>
-            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\framework\main.c</FilePath>
+              <FilePath>..\src\framework\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>retarget_arm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\framework\retarget_arm.c</FilePath>
             </File>
             <File>
               <FileName>startup_simxxxxx_arm.s</FileName>
               <FileType>2</FileType>
-              <FilePath>.\src\framework\startup_simxxxxx_arm.s</FilePath>
+              <FilePath>..\src\framework\startup_simxxxxx_arm.s</FilePath>
             </File>
           </Files>
         </Group>
@@ -412,14 +412,14 @@
           <GroupName>Framework Configuration</GroupName>
           <Files>
             <File>
-              <FileName>userconfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\framework\userconfig.h</FilePath>
-            </File>
-            <File>
               <FileName>factoryconfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\factoryconfig.h</FilePath>
+              <FilePath>..\src\framework\factoryconfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>userconfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\src\framework\userconfig.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -429,42 +429,42 @@
             <File>
               <FileName>global.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\global.h</FilePath>
+              <FilePath>..\src\framework\global.h</FilePath>
             </File>
             <File>
               <FileName>const.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\const.h</FilePath>
+              <FilePath>..\src\framework\const.h</FilePath>
             </File>
             <File>
               <FileName>types.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\types.h</FilePath>
+              <FilePath>..\src\framework\types.h</FilePath>
             </File>
             <File>
               <FileName>dfu.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\dfu.h</FilePath>
+              <FilePath>..\src\framework\dfu.h</FilePath>
             </File>
             <File>
               <FileName>filemgr.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\filemgr.h</FilePath>
+              <FilePath>..\src\framework\filemgr.h</FilePath>
             </File>
             <File>
               <FileName>comm.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\comm.h</FilePath>
+              <FilePath>..\src\framework\comm.h</FilePath>
             </File>
             <File>
               <FileName>flctl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\flctl.h</FilePath>
+              <FilePath>..\src\framework\flctl.h</FilePath>
             </File>
             <File>
               <FileName>device.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\device.h</FilePath>
+              <FilePath>..\src\framework\device.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -474,12 +474,12 @@
             <File>
               <FileName>dfu.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\framework\dfu.c</FilePath>
+              <FilePath>..\src\framework\dfu.c</FilePath>
             </File>
             <File>
               <FileName>filemgr.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\framework\filemgr.c</FilePath>
+              <FilePath>..\src\framework\filemgr.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -487,34 +487,34 @@
           <GroupName>Device Specific Files</GroupName>
           <Files>
             <File>
-              <FileName>device_userconfig_sim3u1xx.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h</FilePath>
-            </File>
-            <File>
-              <FileName>device_sim3u1xx.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\device_specific_sim3u1xx\device_sim3u1xx.h</FilePath>
-            </File>
-            <File>
               <FileName>device_sim3u1xx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\device_specific_sim3u1xx\device_sim3u1xx.c</FilePath>
-            </File>
-            <File>
-              <FileName>flctl_sim3u1xx.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\device_specific_sim3u1xx\flctl_sim3u1xx.h</FilePath>
+              <FilePath>..\src\device_specific_sim3u1xx\device_sim3u1xx.c</FilePath>
             </File>
             <File>
               <FileName>flctl_sim3u1xx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\device_specific_sim3u1xx\flctl_sim3u1xx.c</FilePath>
+              <FilePath>..\src\device_specific_sim3u1xx\flctl_sim3u1xx.c</FilePath>
+            </File>
+            <File>
+              <FileName>device_sim3u1xx.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\src\device_specific_sim3u1xx\device_sim3u1xx.h</FilePath>
+            </File>
+            <File>
+              <FileName>device_userconfig_sim3u1xx.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\src\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h</FilePath>
+            </File>
+            <File>
+              <FileName>flctl_sim3u1xx.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\src\device_specific_sim3u1xx\flctl_sim3u1xx.h</FilePath>
             </File>
             <File>
               <FileName>flctl_userconfig_sim3u1xx.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h</FilePath>
+              <FilePath>..\src\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -524,12 +524,12 @@
             <File>
               <FileName>comm_uart_sim3u1xx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.c</FilePath>
+              <FilePath>..\src\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.c</FilePath>
             </File>
             <File>
               <FileName>comm_uart_sim3u1xx.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h</FilePath>
+              <FilePath>..\src\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -539,32 +539,32 @@
             <File>
               <FileName>comm_usb_sim3u1xx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\comm_specific_usb_sim3u1xx\comm_usb_sim3u1xx.c</FilePath>
-            </File>
-            <File>
-              <FileName>USB0_Descriptor.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\comm_specific_usb_sim3u1xx\USB0_Descriptor.c</FilePath>
-            </File>
-            <File>
-              <FileName>USB0_StandardRequests.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\comm_specific_usb_sim3u1xx\USB0_StandardRequests.c</FilePath>
+              <FilePath>..\src\comm_specific_usb_sim3u1xx\comm_usb_sim3u1xx.c</FilePath>
             </File>
             <File>
               <FileName>USB0_ControlRequests.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\comm_specific_usb_sim3u1xx\USB0_ControlRequests.c</FilePath>
+              <FilePath>..\src\comm_specific_usb_sim3u1xx\USB0_ControlRequests.c</FilePath>
+            </File>
+            <File>
+              <FileName>USB0_Descriptor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\comm_specific_usb_sim3u1xx\USB0_Descriptor.c</FilePath>
             </File>
             <File>
               <FileName>USB0_ISR.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\comm_specific_usb_sim3u1xx\USB0_ISR.c</FilePath>
+              <FilePath>..\src\comm_specific_usb_sim3u1xx\USB0_ISR.c</FilePath>
+            </File>
+            <File>
+              <FileName>USB0_StandardRequests.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\comm_specific_usb_sim3u1xx\USB0_StandardRequests.c</FilePath>
             </File>
             <File>
               <FileName>comm_usb_sim3u1xx.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\comm_specific_usb_sim3u1xx\comm_usb_sim3u1xx.h</FilePath>
+              <FilePath>..\src\comm_specific_usb_sim3u1xx\comm_usb_sim3u1xx.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -956,19 +956,19 @@
           <GroupName>Startup and Main</GroupName>
           <Files>
             <File>
-              <FileName>retarget_arm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\framework\retarget_arm.c</FilePath>
-            </File>
-            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\framework\main.c</FilePath>
+              <FilePath>..\src\framework\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>retarget_arm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\framework\retarget_arm.c</FilePath>
             </File>
             <File>
               <FileName>startup_simxxxxx_arm.s</FileName>
               <FileType>2</FileType>
-              <FilePath>.\src\framework\startup_simxxxxx_arm.s</FilePath>
+              <FilePath>..\src\framework\startup_simxxxxx_arm.s</FilePath>
             </File>
           </Files>
         </Group>
@@ -976,14 +976,14 @@
           <GroupName>Framework Configuration</GroupName>
           <Files>
             <File>
-              <FileName>userconfig.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\framework\userconfig.h</FilePath>
-            </File>
-            <File>
               <FileName>factoryconfig.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\factoryconfig.h</FilePath>
+              <FilePath>..\src\framework\factoryconfig.h</FilePath>
+            </File>
+            <File>
+              <FileName>userconfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\src\framework\userconfig.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -993,42 +993,42 @@
             <File>
               <FileName>global.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\global.h</FilePath>
+              <FilePath>..\src\framework\global.h</FilePath>
             </File>
             <File>
               <FileName>const.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\const.h</FilePath>
+              <FilePath>..\src\framework\const.h</FilePath>
             </File>
             <File>
               <FileName>types.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\types.h</FilePath>
+              <FilePath>..\src\framework\types.h</FilePath>
             </File>
             <File>
               <FileName>dfu.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\dfu.h</FilePath>
+              <FilePath>..\src\framework\dfu.h</FilePath>
             </File>
             <File>
               <FileName>filemgr.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\filemgr.h</FilePath>
+              <FilePath>..\src\framework\filemgr.h</FilePath>
             </File>
             <File>
               <FileName>comm.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\comm.h</FilePath>
+              <FilePath>..\src\framework\comm.h</FilePath>
             </File>
             <File>
               <FileName>flctl.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\flctl.h</FilePath>
+              <FilePath>..\src\framework\flctl.h</FilePath>
             </File>
             <File>
               <FileName>device.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\framework\device.h</FilePath>
+              <FilePath>..\src\framework\device.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1038,12 +1038,12 @@
             <File>
               <FileName>dfu.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\framework\dfu.c</FilePath>
+              <FilePath>..\src\framework\dfu.c</FilePath>
             </File>
             <File>
               <FileName>filemgr.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\framework\filemgr.c</FilePath>
+              <FilePath>..\src\framework\filemgr.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1051,34 +1051,34 @@
           <GroupName>Device Specific Files</GroupName>
           <Files>
             <File>
-              <FileName>device_userconfig_sim3u1xx.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h</FilePath>
-            </File>
-            <File>
-              <FileName>device_sim3u1xx.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\device_specific_sim3u1xx\device_sim3u1xx.h</FilePath>
-            </File>
-            <File>
               <FileName>device_sim3u1xx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\device_specific_sim3u1xx\device_sim3u1xx.c</FilePath>
-            </File>
-            <File>
-              <FileName>flctl_sim3u1xx.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\device_specific_sim3u1xx\flctl_sim3u1xx.h</FilePath>
+              <FilePath>..\src\device_specific_sim3u1xx\device_sim3u1xx.c</FilePath>
             </File>
             <File>
               <FileName>flctl_sim3u1xx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\device_specific_sim3u1xx\flctl_sim3u1xx.c</FilePath>
+              <FilePath>..\src\device_specific_sim3u1xx\flctl_sim3u1xx.c</FilePath>
+            </File>
+            <File>
+              <FileName>device_sim3u1xx.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\src\device_specific_sim3u1xx\device_sim3u1xx.h</FilePath>
+            </File>
+            <File>
+              <FileName>device_userconfig_sim3u1xx.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\src\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h</FilePath>
+            </File>
+            <File>
+              <FileName>flctl_sim3u1xx.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\src\device_specific_sim3u1xx\flctl_sim3u1xx.h</FilePath>
             </File>
             <File>
               <FileName>flctl_userconfig_sim3u1xx.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h</FilePath>
+              <FilePath>..\src\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1088,12 +1088,12 @@
             <File>
               <FileName>comm_uart_sim3u1xx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.c</FilePath>
+              <FilePath>..\src\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.c</FilePath>
             </File>
             <File>
               <FileName>comm_uart_sim3u1xx.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h</FilePath>
+              <FilePath>..\src\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1103,32 +1103,32 @@
             <File>
               <FileName>comm_usb_sim3u1xx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\comm_specific_usb_sim3u1xx\comm_usb_sim3u1xx.c</FilePath>
-            </File>
-            <File>
-              <FileName>USB0_Descriptor.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\comm_specific_usb_sim3u1xx\USB0_Descriptor.c</FilePath>
-            </File>
-            <File>
-              <FileName>USB0_StandardRequests.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\src\comm_specific_usb_sim3u1xx\USB0_StandardRequests.c</FilePath>
+              <FilePath>..\src\comm_specific_usb_sim3u1xx\comm_usb_sim3u1xx.c</FilePath>
             </File>
             <File>
               <FileName>USB0_ControlRequests.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\comm_specific_usb_sim3u1xx\USB0_ControlRequests.c</FilePath>
+              <FilePath>..\src\comm_specific_usb_sim3u1xx\USB0_ControlRequests.c</FilePath>
+            </File>
+            <File>
+              <FileName>USB0_Descriptor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\comm_specific_usb_sim3u1xx\USB0_Descriptor.c</FilePath>
             </File>
             <File>
               <FileName>USB0_ISR.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\src\comm_specific_usb_sim3u1xx\USB0_ISR.c</FilePath>
+              <FilePath>..\src\comm_specific_usb_sim3u1xx\USB0_ISR.c</FilePath>
+            </File>
+            <File>
+              <FileName>USB0_StandardRequests.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\comm_specific_usb_sim3u1xx\USB0_StandardRequests.c</FilePath>
             </File>
             <File>
               <FileName>comm_usb_sim3u1xx.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\comm_specific_usb_sim3u1xx\comm_usb_sim3u1xx.h</FilePath>
+              <FilePath>..\src\comm_specific_usb_sim3u1xx\comm_usb_sim3u1xx.h</FilePath>
             </File>
           </Files>
         </Group>

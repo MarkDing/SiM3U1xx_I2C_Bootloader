@@ -21,8 +21,11 @@
 // Function Prototypes
 //------------------------------------------------------------------------------
 int main (void);
+#ifdef PRECISION32
+void user_app_jump(void);
+#else
 __asm void user_app_jump(void);
-
+#endif
 //------------------------------------------------------------------------------
 // Global Variables
 //------------------------------------------------------------------------------
@@ -64,10 +67,18 @@ int main (void)
 //------------------------------------------------------------------------------
 // user_app_jump()
 //------------------------------------------------------------------------------
-
+#ifdef PRECISION32
+void user_app_jump(void)
+{
+    __asm volatile ("ldr r0, =USER_APP_START_ADDR");
+    __asm volatile ("ldr sp, [r0]");
+    __asm volatile ("ldr pc, [r0, #4] ");
+}
+#else
 __asm void user_app_jump(void)
 {
    LDR R0, =USER_APP_START_ADDR
    LDR SP, [R0]                  ; Initialze stack pointer
    LDR PC, [R0, #4]              ; Initialize program counter
 }
+#endif

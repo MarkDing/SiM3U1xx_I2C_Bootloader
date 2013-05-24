@@ -1,83 +1,83 @@
 Dependencies for Project 'SiM3U1xx_Bootloader', Target 'UART': (DO NOT MODIFY !)
-F (.\src\framework\retarget_arm.c)(0x518C6A4E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I.\framework -I.\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\retarget_arm.o" --omf_browse ".\debug\sim3u1xx\uart\retarget_arm.crf" --depend ".\debug\sim3u1xx\uart\retarget_arm.d")
-I (src\framework\global.h)(0x518C6BEA)
-I (src\framework\const.h)(0x518C6BEA)
-I (src\framework\userconfig.h)(0x518C6BEA)
-I (src\framework\factoryconfig.h)(0x518C6BEA)
+F (..\src\framework\main.c)(0x519F366A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I..\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\main.o" --omf_browse ".\debug\sim3u1xx\uart\main.crf" --depend ".\debug\sim3u1xx\uart\main.d")
+I (..\src\framework\global.h)(0x518C6BEA)
+I (..\src\framework\const.h)(0x518C6BEA)
+I (..\src\framework\userconfig.h)(0x518C6BEA)
+I (..\src\framework\factoryconfig.h)(0x518C6BEA)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x50F96150)
-I (src\framework\types.h)(0x518C6BEA)
-I (src\framework\device.h)(0x518C6BEA)
-I (src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\flctl.h)(0x518C6BEA)
-I (src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\comm.h)(0x518C6BEA)
-I (src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\filemgr.h)(0x518C6BEA)
-I (src\framework\dfu.h)(0x518C6BEA)
-F (.\src\framework\main.c)(0x518C6A42)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I.\framework -I.\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\main.o" --omf_browse ".\debug\sim3u1xx\uart\main.crf" --depend ".\debug\sim3u1xx\uart\main.d")
-I (src\framework\global.h)(0x518C6BEA)
-I (src\framework\const.h)(0x518C6BEA)
-I (src\framework\userconfig.h)(0x518C6BEA)
-I (src\framework\factoryconfig.h)(0x518C6BEA)
+I (..\src\framework\types.h)(0x519F2241)
+I (..\src\framework\device.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\flctl.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\comm.h)(0x518C6BEA)
+I (..\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\filemgr.h)(0x518C6BEA)
+I (..\src\framework\dfu.h)(0x518C6BEA)
+F (..\src\framework\retarget_arm.c)(0x518C6A4E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I..\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\retarget_arm.o" --omf_browse ".\debug\sim3u1xx\uart\retarget_arm.crf" --depend ".\debug\sim3u1xx\uart\retarget_arm.d")
+I (..\src\framework\global.h)(0x518C6BEA)
+I (..\src\framework\const.h)(0x518C6BEA)
+I (..\src\framework\userconfig.h)(0x518C6BEA)
+I (..\src\framework\factoryconfig.h)(0x518C6BEA)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x50F96150)
-I (src\framework\types.h)(0x518C6BEA)
-I (src\framework\device.h)(0x518C6BEA)
-I (src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\flctl.h)(0x518C6BEA)
-I (src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\comm.h)(0x518C6BEA)
-I (src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\filemgr.h)(0x518C6BEA)
-I (src\framework\dfu.h)(0x518C6BEA)
-F (.\src\framework\startup_simxxxxx_arm.s)(0x5189BFEE)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1" --cpreproc --cpreproc_opts='-DMCU_FAMILY=SiM3U1'  --cpreproc_opts='-DCOMM_PROTOCOL=UART' -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include --list ".\debug\sim3u1xx\uart\startup_simxxxxx_arm.lst" --xref -o ".\debug\sim3u1xx\uart\startup_simxxxxx_arm.o" --depend ".\debug\sim3u1xx\uart\startup_simxxxxx_arm.d")
-F (.\src\framework\userconfig.h)(0x518C6BEA)()
-F (.\src\framework\factoryconfig.h)(0x518C6BEA)()
-F (.\src\framework\global.h)(0x518C6BEA)()
-F (.\src\framework\const.h)(0x518C6BEA)()
-F (.\src\framework\types.h)(0x518C6BEA)()
-F (.\src\framework\dfu.h)(0x518C6BEA)()
-F (.\src\framework\filemgr.h)(0x518C6BEA)()
-F (.\src\framework\comm.h)(0x518C6BEA)()
-F (.\src\framework\flctl.h)(0x518C6BEA)()
-F (.\src\framework\device.h)(0x518C6BEA)()
-F (.\src\framework\dfu.c)(0x518C6BEA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I.\framework -I.\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\dfu.o" --omf_browse ".\debug\sim3u1xx\uart\dfu.crf" --depend ".\debug\sim3u1xx\uart\dfu.d")
-I (src\framework\global.h)(0x518C6BEA)
-I (src\framework\const.h)(0x518C6BEA)
-I (src\framework\userconfig.h)(0x518C6BEA)
-I (src\framework\factoryconfig.h)(0x518C6BEA)
+I (..\src\framework\types.h)(0x519F2241)
+I (..\src\framework\device.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\flctl.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\comm.h)(0x518C6BEA)
+I (..\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\filemgr.h)(0x518C6BEA)
+I (..\src\framework\dfu.h)(0x518C6BEA)
+F (..\src\framework\startup_simxxxxx_arm.s)(0x5189BFEE)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1" --cpreproc --cpreproc_opts='-DMCU_FAMILY=SiM3U1'  --cpreproc_opts='-DCOMM_PROTOCOL=UART' -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include --list ".\debug\sim3u1xx\uart\startup_simxxxxx_arm.lst" --xref -o ".\debug\sim3u1xx\uart\startup_simxxxxx_arm.o" --depend ".\debug\sim3u1xx\uart\startup_simxxxxx_arm.d")
+F (..\src\framework\factoryconfig.h)(0x518C6BEA)()
+F (..\src\framework\userconfig.h)(0x518C6BEA)()
+F (..\src\framework\global.h)(0x518C6BEA)()
+F (..\src\framework\const.h)(0x518C6BEA)()
+F (..\src\framework\types.h)(0x519F2241)()
+F (..\src\framework\dfu.h)(0x518C6BEA)()
+F (..\src\framework\filemgr.h)(0x518C6BEA)()
+F (..\src\framework\comm.h)(0x518C6BEA)()
+F (..\src\framework\flctl.h)(0x518C6BEA)()
+F (..\src\framework\device.h)(0x518C6BEA)()
+F (..\src\framework\dfu.c)(0x518C6BEA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I..\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\dfu.o" --omf_browse ".\debug\sim3u1xx\uart\dfu.crf" --depend ".\debug\sim3u1xx\uart\dfu.d")
+I (..\src\framework\global.h)(0x518C6BEA)
+I (..\src\framework\const.h)(0x518C6BEA)
+I (..\src\framework\userconfig.h)(0x518C6BEA)
+I (..\src\framework\factoryconfig.h)(0x518C6BEA)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x50F96150)
-I (src\framework\types.h)(0x518C6BEA)
-I (src\framework\device.h)(0x518C6BEA)
-I (src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\flctl.h)(0x518C6BEA)
-I (src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\comm.h)(0x518C6BEA)
-I (src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\filemgr.h)(0x518C6BEA)
-I (src\framework\dfu.h)(0x518C6BEA)
-F (.\src\framework\filemgr.c)(0x518C6BEA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I.\framework -I.\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\filemgr.o" --omf_browse ".\debug\sim3u1xx\uart\filemgr.crf" --depend ".\debug\sim3u1xx\uart\filemgr.d")
-I (src\framework\global.h)(0x518C6BEA)
-I (src\framework\const.h)(0x518C6BEA)
-I (src\framework\userconfig.h)(0x518C6BEA)
-I (src\framework\factoryconfig.h)(0x518C6BEA)
+I (..\src\framework\types.h)(0x519F2241)
+I (..\src\framework\device.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\flctl.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\comm.h)(0x518C6BEA)
+I (..\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\filemgr.h)(0x518C6BEA)
+I (..\src\framework\dfu.h)(0x518C6BEA)
+F (..\src\framework\filemgr.c)(0x518C6BEA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I..\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\filemgr.o" --omf_browse ".\debug\sim3u1xx\uart\filemgr.crf" --depend ".\debug\sim3u1xx\uart\filemgr.d")
+I (..\src\framework\global.h)(0x518C6BEA)
+I (..\src\framework\const.h)(0x518C6BEA)
+I (..\src\framework\userconfig.h)(0x518C6BEA)
+I (..\src\framework\factoryconfig.h)(0x518C6BEA)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x50F96150)
-I (src\framework\types.h)(0x518C6BEA)
-I (src\framework\device.h)(0x518C6BEA)
-I (src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\flctl.h)(0x518C6BEA)
-I (src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\comm.h)(0x518C6BEA)
-I (src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
-I (src\framework\filemgr.h)(0x518C6BEA)
-I (src\framework\dfu.h)(0x518C6BEA)
+I (..\src\framework\types.h)(0x519F2241)
+I (..\src\framework\device.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\flctl.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\comm.h)(0x518C6BEA)
+I (..\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\filemgr.h)(0x518C6BEA)
+I (..\src\framework\dfu.h)(0x518C6BEA)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx\sim3u1xx.h)(0x50A42DBD)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU\core_cm3.h)(0x50A42DBB)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU\core_cmInstr.h)(0x50A42DBB)
@@ -132,25 +132,23 @@ I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules\SI32_CRC_A_Type.h)(0x50A42DBB
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdbool.h)(0x50F96150)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules\si32WideTypes.h)(0x50A42DBC)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules\SI32_CRC_A_Support.h)(0x50A42DBB)
-F (.\src\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)()
-F (.\src\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)()
-F (.\src\device_specific_sim3u1xx\device_sim3u1xx.c)(0x518C6BEA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I.\framework -I.\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\device_sim3u1xx.o" --omf_browse ".\debug\sim3u1xx\uart\device_sim3u1xx.crf" --depend ".\debug\sim3u1xx\uart\device_sim3u1xx.d")
-I (.\src\framework\global.h)(0x518C6BEA)
-I (.\src\framework\const.h)(0x518C6BEA)
-I (.\src\framework\userconfig.h)(0x518C6BEA)
-I (.\src\framework\factoryconfig.h)(0x518C6BEA)
+F (..\src\device_specific_sim3u1xx\device_sim3u1xx.c)(0x518C6BEA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I..\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\device_sim3u1xx.o" --omf_browse ".\debug\sim3u1xx\uart\device_sim3u1xx.crf" --depend ".\debug\sim3u1xx\uart\device_sim3u1xx.d")
+I (..\src\framework\global.h)(0x518C6BEA)
+I (..\src\framework\const.h)(0x518C6BEA)
+I (..\src\framework\userconfig.h)(0x518C6BEA)
+I (..\src\framework\factoryconfig.h)(0x518C6BEA)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x50F96150)
-I (.\src\framework\types.h)(0x518C6BEA)
-I (.\src\framework\device.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\flctl.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\comm.h)(0x518C6BEA)
-I (.\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\filemgr.h)(0x518C6BEA)
-I (.\src\framework\dfu.h)(0x518C6BEA)
+I (..\src\framework\types.h)(0x519F2241)
+I (..\src\framework\device.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\flctl.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\comm.h)(0x518C6BEA)
+I (..\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\filemgr.h)(0x518C6BEA)
+I (..\src\framework\dfu.h)(0x518C6BEA)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx\sim3u1xx.h)(0x50A42DBD)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU\core_cm3.h)(0x50A42DBB)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU\core_cmInstr.h)(0x50A42DBB)
@@ -213,24 +211,23 @@ I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx\SI32_RSTSRC_A_Support.h)(0x50A42D
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules\SI32_WDTIMER_A_Type.h)(0x50A42DBC)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules\SI32_CRC_A_Type.h)(0x50A42DBB)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules\SI32_CRC_A_Support.h)(0x50A42DBB)
-F (.\src\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)()
-F (.\src\device_specific_sim3u1xx\flctl_sim3u1xx.c)(0x518C6BEA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I.\framework -I.\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\flctl_sim3u1xx.o" --omf_browse ".\debug\sim3u1xx\uart\flctl_sim3u1xx.crf" --depend ".\debug\sim3u1xx\uart\flctl_sim3u1xx.d")
-I (.\src\framework\global.h)(0x518C6BEA)
-I (.\src\framework\const.h)(0x518C6BEA)
-I (.\src\framework\userconfig.h)(0x518C6BEA)
-I (.\src\framework\factoryconfig.h)(0x518C6BEA)
+F (..\src\device_specific_sim3u1xx\flctl_sim3u1xx.c)(0x518C6BEA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I..\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\flctl_sim3u1xx.o" --omf_browse ".\debug\sim3u1xx\uart\flctl_sim3u1xx.crf" --depend ".\debug\sim3u1xx\uart\flctl_sim3u1xx.d")
+I (..\src\framework\global.h)(0x518C6BEA)
+I (..\src\framework\const.h)(0x518C6BEA)
+I (..\src\framework\userconfig.h)(0x518C6BEA)
+I (..\src\framework\factoryconfig.h)(0x518C6BEA)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x50F96150)
-I (.\src\framework\types.h)(0x518C6BEA)
-I (.\src\framework\device.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\flctl.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\comm.h)(0x518C6BEA)
-I (.\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\filemgr.h)(0x518C6BEA)
-I (.\src\framework\dfu.h)(0x518C6BEA)
+I (..\src\framework\types.h)(0x519F2241)
+I (..\src\framework\device.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\flctl.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\comm.h)(0x518C6BEA)
+I (..\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\filemgr.h)(0x518C6BEA)
+I (..\src\framework\dfu.h)(0x518C6BEA)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx\sim3u1xx.h)(0x50A42DBD)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU\core_cm3.h)(0x50A42DBB)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU\core_cmInstr.h)(0x50A42DBB)
@@ -287,24 +284,27 @@ I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules\si32WideTypes.h)(0x50A42DBC)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules\SI32_VMON_A_Type.h)(0x50A42DBC)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx\SI32_RSTSRC_A_Type.h)(0x50A42DBD)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx\SI32_RSTSRC_A_Support.h)(0x50A42DBD)
-F (.\src\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)()
-F (.\src\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.c)(0x518C6BEA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I.\framework -I.\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\comm_uart_sim3u1xx.o" --omf_browse ".\debug\sim3u1xx\uart\comm_uart_sim3u1xx.crf" --depend ".\debug\sim3u1xx\uart\comm_uart_sim3u1xx.d")
-I (.\src\framework\global.h)(0x518C6BEA)
-I (.\src\framework\const.h)(0x518C6BEA)
-I (.\src\framework\userconfig.h)(0x518C6BEA)
-I (.\src\framework\factoryconfig.h)(0x518C6BEA)
+F (..\src\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)()
+F (..\src\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)()
+F (..\src\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)()
+F (..\src\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)()
+F (..\src\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.c)(0x518C6BEA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I..\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\comm_uart_sim3u1xx.o" --omf_browse ".\debug\sim3u1xx\uart\comm_uart_sim3u1xx.crf" --depend ".\debug\sim3u1xx\uart\comm_uart_sim3u1xx.d")
+I (..\src\framework\global.h)(0x518C6BEA)
+I (..\src\framework\const.h)(0x518C6BEA)
+I (..\src\framework\userconfig.h)(0x518C6BEA)
+I (..\src\framework\factoryconfig.h)(0x518C6BEA)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x50F96150)
-I (.\src\framework\types.h)(0x518C6BEA)
-I (.\src\framework\device.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\flctl.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\comm.h)(0x518C6BEA)
-I (.\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\filemgr.h)(0x518C6BEA)
-I (.\src\framework\dfu.h)(0x518C6BEA)
+I (..\src\framework\types.h)(0x519F2241)
+I (..\src\framework\device.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\flctl.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\comm.h)(0x518C6BEA)
+I (..\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\filemgr.h)(0x518C6BEA)
+I (..\src\framework\dfu.h)(0x518C6BEA)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx\sim3u1xx.h)(0x50A42DBD)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU\core_cm3.h)(0x50A42DBB)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU\core_cmInstr.h)(0x50A42DBB)
@@ -364,90 +364,90 @@ I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules\SI32_UART_A_Type.h)(0x50A42DB
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules\SI32_UART_A_Support.h)(0x50A42DBC)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules\SI32_CRC_A_Type.h)(0x50A42DBB)
 I (C:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules\SI32_CRC_A_Support.h)(0x50A42DBB)
-F (.\src\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)()
-F (.\src\comm_specific_usb_sim3u1xx\comm_usb_sim3u1xx.c)(0x518C6BEA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I.\framework -I.\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\comm_usb_sim3u1xx.o" --omf_browse ".\debug\sim3u1xx\uart\comm_usb_sim3u1xx.crf" --depend ".\debug\sim3u1xx\uart\comm_usb_sim3u1xx.d")
-I (.\src\framework\global.h)(0x518C6BEA)
-I (.\src\framework\const.h)(0x518C6BEA)
-I (.\src\framework\userconfig.h)(0x518C6BEA)
-I (.\src\framework\factoryconfig.h)(0x518C6BEA)
+F (..\src\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)()
+F (..\src\comm_specific_usb_sim3u1xx\comm_usb_sim3u1xx.c)(0x518C6BEA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I..\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\comm_usb_sim3u1xx.o" --omf_browse ".\debug\sim3u1xx\uart\comm_usb_sim3u1xx.crf" --depend ".\debug\sim3u1xx\uart\comm_usb_sim3u1xx.d")
+I (..\src\framework\global.h)(0x518C6BEA)
+I (..\src\framework\const.h)(0x518C6BEA)
+I (..\src\framework\userconfig.h)(0x518C6BEA)
+I (..\src\framework\factoryconfig.h)(0x518C6BEA)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x50F96150)
-I (.\src\framework\types.h)(0x518C6BEA)
-I (.\src\framework\device.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\flctl.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\comm.h)(0x518C6BEA)
-I (.\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\filemgr.h)(0x518C6BEA)
-I (.\src\framework\dfu.h)(0x518C6BEA)
-F (.\src\comm_specific_usb_sim3u1xx\USB0_Descriptor.c)(0x518C6994)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I.\framework -I.\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\usb0_descriptor.o" --omf_browse ".\debug\sim3u1xx\uart\usb0_descriptor.crf" --depend ".\debug\sim3u1xx\uart\usb0_descriptor.d")
-I (.\src\framework\global.h)(0x518C6BEA)
-I (.\src\framework\const.h)(0x518C6BEA)
-I (.\src\framework\userconfig.h)(0x518C6BEA)
-I (.\src\framework\factoryconfig.h)(0x518C6BEA)
+I (..\src\framework\types.h)(0x519F2241)
+I (..\src\framework\device.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\flctl.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\comm.h)(0x518C6BEA)
+I (..\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\filemgr.h)(0x518C6BEA)
+I (..\src\framework\dfu.h)(0x518C6BEA)
+F (..\src\comm_specific_usb_sim3u1xx\USB0_ControlRequests.c)(0x518C69A0)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I..\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\usb0_controlrequests.o" --omf_browse ".\debug\sim3u1xx\uart\usb0_controlrequests.crf" --depend ".\debug\sim3u1xx\uart\usb0_controlrequests.d")
+I (..\src\framework\global.h)(0x518C6BEA)
+I (..\src\framework\const.h)(0x518C6BEA)
+I (..\src\framework\userconfig.h)(0x518C6BEA)
+I (..\src\framework\factoryconfig.h)(0x518C6BEA)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x50F96150)
-I (.\src\framework\types.h)(0x518C6BEA)
-I (.\src\framework\device.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\flctl.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\comm.h)(0x518C6BEA)
-I (.\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\filemgr.h)(0x518C6BEA)
-I (.\src\framework\dfu.h)(0x518C6BEA)
-F (.\src\comm_specific_usb_sim3u1xx\USB0_StandardRequests.c)(0x518C6974)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I.\framework -I.\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\usb0_standardrequests.o" --omf_browse ".\debug\sim3u1xx\uart\usb0_standardrequests.crf" --depend ".\debug\sim3u1xx\uart\usb0_standardrequests.d")
-I (.\src\framework\global.h)(0x518C6BEA)
-I (.\src\framework\const.h)(0x518C6BEA)
-I (.\src\framework\userconfig.h)(0x518C6BEA)
-I (.\src\framework\factoryconfig.h)(0x518C6BEA)
+I (..\src\framework\types.h)(0x519F2241)
+I (..\src\framework\device.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\flctl.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\comm.h)(0x518C6BEA)
+I (..\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\filemgr.h)(0x518C6BEA)
+I (..\src\framework\dfu.h)(0x518C6BEA)
+F (..\src\comm_specific_usb_sim3u1xx\USB0_Descriptor.c)(0x518C6994)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I..\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\usb0_descriptor.o" --omf_browse ".\debug\sim3u1xx\uart\usb0_descriptor.crf" --depend ".\debug\sim3u1xx\uart\usb0_descriptor.d")
+I (..\src\framework\global.h)(0x518C6BEA)
+I (..\src\framework\const.h)(0x518C6BEA)
+I (..\src\framework\userconfig.h)(0x518C6BEA)
+I (..\src\framework\factoryconfig.h)(0x518C6BEA)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x50F96150)
-I (.\src\framework\types.h)(0x518C6BEA)
-I (.\src\framework\device.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\flctl.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\comm.h)(0x518C6BEA)
-I (.\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\filemgr.h)(0x518C6BEA)
-I (.\src\framework\dfu.h)(0x518C6BEA)
-F (.\src\comm_specific_usb_sim3u1xx\USB0_ControlRequests.c)(0x518C69A0)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I.\framework -I.\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\usb0_controlrequests.o" --omf_browse ".\debug\sim3u1xx\uart\usb0_controlrequests.crf" --depend ".\debug\sim3u1xx\uart\usb0_controlrequests.d")
-I (.\src\framework\global.h)(0x518C6BEA)
-I (.\src\framework\const.h)(0x518C6BEA)
-I (.\src\framework\userconfig.h)(0x518C6BEA)
-I (.\src\framework\factoryconfig.h)(0x518C6BEA)
+I (..\src\framework\types.h)(0x519F2241)
+I (..\src\framework\device.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\flctl.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\comm.h)(0x518C6BEA)
+I (..\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\filemgr.h)(0x518C6BEA)
+I (..\src\framework\dfu.h)(0x518C6BEA)
+F (..\src\comm_specific_usb_sim3u1xx\USB0_ISR.c)(0x518C6984)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I..\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\usb0_isr.o" --omf_browse ".\debug\sim3u1xx\uart\usb0_isr.crf" --depend ".\debug\sim3u1xx\uart\usb0_isr.d")
+I (..\src\framework\global.h)(0x518C6BEA)
+I (..\src\framework\const.h)(0x518C6BEA)
+I (..\src\framework\userconfig.h)(0x518C6BEA)
+I (..\src\framework\factoryconfig.h)(0x518C6BEA)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x50F96150)
-I (.\src\framework\types.h)(0x518C6BEA)
-I (.\src\framework\device.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\flctl.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\comm.h)(0x518C6BEA)
-I (.\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\filemgr.h)(0x518C6BEA)
-I (.\src\framework\dfu.h)(0x518C6BEA)
-F (.\src\comm_specific_usb_sim3u1xx\USB0_ISR.c)(0x518C6984)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I.\framework -I.\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\usb0_isr.o" --omf_browse ".\debug\sim3u1xx\uart\usb0_isr.crf" --depend ".\debug\sim3u1xx\uart\usb0_isr.d")
-I (.\src\framework\global.h)(0x518C6BEA)
-I (.\src\framework\const.h)(0x518C6BEA)
-I (.\src\framework\userconfig.h)(0x518C6BEA)
-I (.\src\framework\factoryconfig.h)(0x518C6BEA)
+I (..\src\framework\types.h)(0x519F2241)
+I (..\src\framework\device.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\flctl.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\comm.h)(0x518C6BEA)
+I (..\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\filemgr.h)(0x518C6BEA)
+I (..\src\framework\dfu.h)(0x518C6BEA)
+F (..\src\comm_specific_usb_sim3u1xx\USB0_StandardRequests.c)(0x518C6974)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork -I..\src\framework -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules -IC:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx --c99 --gnu -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -DNDEBUG -DMCU_FAMILY="SiM3U1" -DCOMM_PROTOCOL="UART" -o ".\debug\sim3u1xx\uart\usb0_standardrequests.o" --omf_browse ".\debug\sim3u1xx\uart\usb0_standardrequests.crf" --depend ".\debug\sim3u1xx\uart\usb0_standardrequests.d")
+I (..\src\framework\global.h)(0x518C6BEA)
+I (..\src\framework\const.h)(0x518C6BEA)
+I (..\src\framework\userconfig.h)(0x518C6BEA)
+I (..\src\framework\factoryconfig.h)(0x518C6BEA)
 I (C:\Keil\ARM\ARMCC\bin\..\include\stdint.h)(0x50F96150)
-I (.\src\framework\types.h)(0x518C6BEA)
-I (.\src\framework\device.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\flctl.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\comm.h)(0x518C6BEA)
-I (.\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
-I (.\src\framework\filemgr.h)(0x518C6BEA)
-I (.\src\framework\dfu.h)(0x518C6BEA)
-F (.\src\comm_specific_usb_sim3u1xx\comm_usb_sim3u1xx.h)(0x518C6BEA)()
+I (..\src\framework\types.h)(0x519F2241)
+I (..\src\framework\device.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\device_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\flctl.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\..\device_specific_sim3u1xx\flctl_userconfig_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\comm.h)(0x518C6BEA)
+I (..\src\framework\..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h)(0x518C6BEA)
+I (..\src\framework\filemgr.h)(0x518C6BEA)
+I (..\src\framework\dfu.h)(0x518C6BEA)
+F (..\src\comm_specific_usb_sim3u1xx\comm_usb_sim3u1xx.h)(0x518C6BEA)()
