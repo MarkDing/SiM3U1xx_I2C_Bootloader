@@ -1,0 +1,50 @@
+
+USB Debug Adapter Firmware Reset Utility v1.5 Release Notes
+Copyright (C) 2012 Silicon Laboratories, Inc.
+
+
+This release contains the following components:
+
+        * Si32FlashUtility.exe
+        * SLAB_ADI.dll
+        * SLAB_ADI_Util.dll
+        * SLABHHIDDevice.dll
+        * ReleaseNotes.txt (this file)
+
+
+Release Dates
+-------------
+
+	si32FlashUtility Version 1.0 - March 2, 2012
+	si32FlashUtility Version 1.1 - April 9, 2012
+	si32FlashUtility Version 1.2 - October 1, 2012
+	si32FlashUtility Version 1.4 - November 1, 2012
+	si32FlashUtility Version 1.5 - February 19, 2013
+	
+
+KNOWN ISSUES AND LIMITATIONS
+----------------------------
+	
+	1.) Only 32-bit USB Debug adapters are supported with this version.
+
+
+REVISION HISTORY
+----------------
+
+Version 1.5
+	- Added Toolstick Terminal compatibility.
+
+Version 1.4
+	- Added support to lock flash after downloading.
+
+Version 1.2
+	- Added support to dump flash to a specified hex file.
+
+Version 1.1
+	- Fixed a bug where only 64 kB of Flash was being programmed.
+
+Version 1.0
+	Initial Release
+
+
+
