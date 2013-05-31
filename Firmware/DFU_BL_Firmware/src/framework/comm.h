@@ -28,6 +28,8 @@
 #elif (MCU_FAMILY == SiM3U1)
    #if (COMM_PROTOCOL == UART)
       #include "..\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h"
+   #elif (COMM_PROTOCOL == I2C)
+      #include "..\comm_specific_i2c_sim3u1xx\comm_i2c_sim3u1xx.h"
    #elif (COMM_PROTOCOL == USB)
       #include "..\comm_specific_usb_sim3u1xx\comm_usb_sim3u1xx.h"
    #else

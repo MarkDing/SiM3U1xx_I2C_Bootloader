@@ -56,10 +56,10 @@ void COMM_Init(void)
    SI32_PBCFG_A_enable_crossbar_0(SI32_PBCFG_0);
    SI32_PBCFG_A_enable_xbar0h_peripherals(SI32_PBCFG_0, SI32_PBCFG_A_XBAR0H_UART0EN);
 
-   // UART PINS TO PROPER CONFIG (TX = PB1.12, RX = PB1.13)
-   SI32_PBSTD_A_set_pins_push_pull_output(SI32_PBSTD_1, 0x0001000);
+   // UART PINS TO PROPER CONFIG (TX = PB1.12, RX = PB1.13) SMV = PB1.3
+   SI32_PBSTD_A_set_pins_push_pull_output(SI32_PBSTD_1, 0x0001008);
    SI32_PBSTD_A_set_pins_digital_input(SI32_PBSTD_1, 0x00002000);
-   SI32_PBSTD_A_write_pbskipen(SI32_PBSTD_0, 0x0000FFFF);
+   SI32_PBSTD_A_write_pbskipen(SI32_PBSTD_0, 0x00003FFF);
    SI32_PBSTD_A_write_pbskipen(SI32_PBSTD_1, 0x00000FFF);
 
    // Setup UART for full-duplex mode

@@ -9,7 +9,6 @@ del /s *.htm
 del /s *.plg
 del /s *.tra
 del /s *.lst
-del *.fbar
-rem del *.uvopt
-rmdir debug /s /q
+del /s *.mading
+rmdir keil/debug /s /q
 

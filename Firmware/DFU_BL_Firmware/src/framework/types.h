@@ -58,8 +58,7 @@ typedef enum DFU_Status_Enum
    errCOMM              = 0x10
 } DFU_Status_Type;
 
-#pragma push
-#pragma pack(1)
+#pragma pack(push,1)
 typedef struct DFU_Cmd_Packet_Struct
 {
    uint8_t bRequest;
@@ -68,12 +67,11 @@ typedef struct DFU_Cmd_Packet_Struct
    uint16_t wLength;  // Size of the Data Field
    uint8_t Data[DFU_CMD_BUFFER_SIZE];
 } DFU_Cmd_Packet;
-#pragma pop
+#pragma pack(pop)
 
 #define SIZEOF_DFU_Cmd_Packet (7 + DFU_CMD_BUFFER_SIZE)
 
-#pragma push
-#pragma pack(1)
+#pragma pack(push,1)
 typedef struct DFU_GetStatusRequest_Packet_Struct
 {
    uint8_t bRequest;
@@ -81,12 +79,11 @@ typedef struct DFU_GetStatusRequest_Packet_Struct
    uint16_t wIndex;
    uint16_t wLength;
 } DFU_GetStatusRequest_Packet;
-#pragma pop
+#pragma pack(pop)
 
 #define SIZEOF_DFU_GetStatusRequest_Packet 7
 
-#pragma push
-#pragma pack(1)
+#pragma pack(push,1)
 typedef struct DFU_Status_Reply_Packet_Struct
 {
    uint8_t bStatus;
@@ -95,18 +92,17 @@ typedef struct DFU_Status_Reply_Packet_Struct
    uint8_t bState;
    uint8_t iString;
 } DFU_Status_Reply_Packet;
-#pragma pop
+#pragma pack(pop)
 
 #define SIZEOF_DFU_Status_Reply_Packet 6
 
-#pragma push
-#pragma pack(1)
+#pragma pack(push,1)
 typedef struct DFU_State_Reply_Packet_Struct
 {
    uint8_t bState;
 
 } DFU_State_Reply_Packet;
-#pragma pop
+#pragma pack(pop)
 
 #define SIZEOF_DFU_State_Reply_Packet 1
 
