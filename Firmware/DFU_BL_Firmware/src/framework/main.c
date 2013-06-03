@@ -39,7 +39,8 @@ void mySystemInit(void)
 {
     return;
 }
-extern int32_t I2C_hander(uint8_t *buf, uint32_t count);
+#if 1
+extern int32_t I2C_handler(uint8_t *buf, uint32_t count);
 uint8_t test_buf[64];
 void i2c_test()
 {
@@ -49,7 +50,7 @@ void i2c_test()
         test_buf[i] = i + 5;
     }
     while (1) {
-        if (I2C_hander(test_buf, 7)) {
+        if (I2C_handler(test_buf, 7)) {
             tmp = 5;
             //            printf("finished 7 bytes transfer\n");
         } else {
@@ -58,6 +59,7 @@ void i2c_test()
         }
     }
 }
+#endif
 //------------------------------------------------------------------------------
 // Main Routine
 //------------------------------------------------------------------------------
@@ -65,7 +67,7 @@ int main(void)
 {
     // Initialize device and execute boot handler
     DEVICE_Init();
-    i2c_test();
+//    i2c_test();
     // Update Firmware or Jump to User Application
     if (trigger) {
         //Update Firmware

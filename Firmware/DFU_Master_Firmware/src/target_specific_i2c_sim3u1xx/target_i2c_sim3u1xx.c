@@ -17,32 +17,19 @@
  */
 
 #include "global.h"
+#if (MCU_FAMILY == SiM3U1 && COMM_PROTOCOL == UART)
 
 #include <sim3u1xx.h>
 #include <SI32_PBSTD_A_Type.h>
 #include <SI32_PBCFG_A_Type.h>
 #include <SI32_I2C_A_Type.h>
-
+#include <SI32_CRC_A_Type.h>
 /**
  * \def I2C_ADDRESS
  * \brief I2C slave address 0xF0
  */
 #define I2C_ADDRESS 0xF0
-//------------------------------------------------------------------------------
-// Exported Function Prototypes
-//------------------------------------------------------------------------------
-void target_comm_init(void);
 
-//------------------------------------------------------------------------------
-// COMM_Init
-//------------------------------------------------------------------------------
-/**
- * \fn void target_comm_init(void)
- * \brief Initialise I2C module
- *
- * Setup Crossbar and I/O for I2C. Set I2C clock rate to 400kHz,
- *
- */
 void target_comm_init(void)
 {
     // Setup Crossbar and I/O for I2C
@@ -74,27 +61,12 @@ void target_comm_init(void)
     // Tsetup = (17-SETUP)/Fi2c = 0.8uS
     SI32_I2C_A_set_extended_data_setup_time(SI32_I2C_0, 0x01);
     // Slave Mode Inhibit
-  //  SI32_I2C_A_disable_slave_mode(SI32_I2C_0);
+    //  SI32_I2C_A_disable_slave_mode(SI32_I2C_0);
     // ENABLE MODULE
     SI32_I2C_A_enable_module(SI32_I2C_0);
 
 }
 
-/** \fn int32_t I2C_handler(uint8_t *buf, uint32_t count)
- *  \brief  I2C communication handler
- *
- *  It handlers both transmit and receive, read/write data in buf in
- *  parameter.
- *
- * \note I2C STAI comes with ACKI, so we need clear ACKI
- * \note I2C STOI comes with RXI, so we need to clear RXI
- * \note I2C TXI and RXI happens, the TXARM and RXARM has been cleared. Set them to 1 for next transition
- * \note Last byte of TXI, we don't need set TXARM = 1.
- * \param buf buffer for transmit and receive data
- * \param count number of bytes to transfer or receive
- * \param rw 1: read, 0: write
- * \return 0: success; 1: error
- */
 int32_t I2C_handler(uint8_t *buf, uint32_t count, uint8_t rw)
 {
     uint8_t * ptr = buf;
@@ -104,6 +76,9 @@ int32_t I2C_handler(uint8_t *buf, uint32_t count, uint8_t rw)
         return false;
     SI32_I2C_A_set_start(SI32_I2C_0);
     do {
+        if (SI32_I2C_0->CONTROL.U32 & 0x3FF00) { // check bit [17:8] interrupt flag
+            SysTick->VAL = (0x00000000); // Reset SysTick Timer and clear timeout flag
+        }
         if (SI32_I2C_A_is_start_interrupt_pending(SI32_I2C_0)) { // I2C start
             uint32_t tmp = I2C_ADDRESS | rw;
             if (SI32_I2C_A_is_master_mode_enabled(SI32_I2C_0)) {// In Master mode
@@ -133,7 +108,7 @@ int32_t I2C_handler(uint8_t *buf, uint32_t count, uint8_t rw)
                 SI32_I2C_A_send_ack(SI32_I2C_0); // send an ACK
                 count--;
             }
-            if(count)
+            if (count)
                 SI32_I2C_A_arm_rx(SI32_I2C_0); // Arm reception(RXARM=1)
             else
                 SI32_I2C_A_set_stop (SI32_I2C_0); // Set STO to terminte transfer
@@ -144,7 +119,7 @@ int32_t I2C_handler(uint8_t *buf, uint32_t count, uint8_t rw)
         if (SI32_I2C_A_is_tx_interrupt_pending(SI32_I2C_0)) { // I2C data transmit
             if (SI32_I2C_A_is_ack_received(SI32_I2C_0)) {
                 if (count) {
-                    if (rw) {  // read
+                    if (rw) { // read
                         SI32_I2C_A_arm_rx(SI32_I2C_0); // Arm reception(RXARM=1)
                     } else { // write
                         SI32_I2C_A_write_data(SI32_I2C_0,*ptr++);
@@ -155,14 +130,14 @@ int32_t I2C_handler(uint8_t *buf, uint32_t count, uint8_t rw)
                     SI32_I2C_A_set_stop (SI32_I2C_0); // Set STO to terminte transfer
                 }
             } else { // NACK was received
-                SI32_I2C_A_set_stop (SI32_I2C_0);   // Set STO to terminte transfer
-                SI32_I2C_A_clear_tx_interrupt(SI32_I2C_0);  // clear TXI
+                SI32_I2C_A_set_stop (SI32_I2C_0); // Set STO to terminte transfer
+                SI32_I2C_A_clear_tx_interrupt(SI32_I2C_0); // clear TXI
                 SI32_I2C_A_clear_ack_interrupt(SI32_I2C_0); // clear ACKI
                 break;
                 // To reschedule transfer, set START then clear interrupt flags.
-//               SI32_I2C_A_set_start(SI32_I2C_0);
+                //               SI32_I2C_A_set_start(SI32_I2C_0);
             }
-            SI32_I2C_A_clear_tx_interrupt(SI32_I2C_0);  // clear TXI
+            SI32_I2C_A_clear_tx_interrupt(SI32_I2C_0); // clear TXI
             SI32_I2C_A_clear_ack_interrupt(SI32_I2C_0); // clear ACKI
         }
 
@@ -176,7 +151,142 @@ int32_t I2C_handler(uint8_t *buf, uint32_t count, uint8_t rw)
             SI32_I2C_A_clear_arblost_interrupt(SI32_I2C_0);
             break;
         }
+        if ((SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk)) {
+            return -1;
+        }
     } while ((I2C_data_ready == 0));
     return (I2C_data_ready ? 0 : -1);
 }
 
+#define PACKET_LENGTH 4
+//------------------------------------------------------------------------------
+// target_comm_receive
+//------------------------------------------------------------------------------
+uint32_t target_comm_receive(uint8_t* rx_buff, uint32_t length)
+{
+    // packet format: ':',sequence number, LSB len,MSB len, data, LSB CRC, MSB CRC
+    uint8_t packet[PACKET_LENGTH];
+    uint32_t payload_length;
+    uint16_t crc_received;
+
+    uint32_t i;
+
+    while (1) {
+        if (I2C_handler(packet, PACKET_LENGTH, 1))
+            return 0;
+
+        //-----------------------------------------------------------
+        // Start of Frame ':'
+        //-----------------------------------------------------------
+        if (packet[0] != ':')
+            return 0;
+
+        // 16-bit CRC-CCITT (poly: 0x1021, init: 0xFFFF)
+        SI32_CRC_A_enable_module(SI32_CRC_0);
+        SI32_CRC_A_select_polynomial_16_bit_1021(SI32_CRC_0);
+        SI32_CRC_A_enable_bit_reversal(SI32_CRC_0);
+        SI32_CRC_A_select_byte_mode(SI32_CRC_0);
+        SI32_CRC_A_initialize_seed_to_one(SI32_CRC_0);
+
+        for (i = 0; i < PACKET_LENGTH; i++) {
+            SI32_CRC_A_write_data(SI32_CRC_0, packet[i]);
+        }
+
+        payload_length = (packet[3] << 8) | (packet[2]); // data length
+
+        if (payload_length > length)
+            payload_length = length;
+
+        //-----------------------------------------------------------
+        // Payload
+        //-----------------------------------------------------------
+        if (I2C_handler(rx_buff, payload_length, 1))
+            return 0;
+        for (i = 0; i < payload_length; i++) {
+            SI32_CRC_A_write_data(SI32_CRC_0, rx_buff[i]);
+        }
+
+        //-----------------------------------------------------------
+        // Verify CRC
+        //-----------------------------------------------------------
+        if (I2C_handler(packet, 2, 1))
+            return 0;
+        crc_received = (packet[1] << 8) | packet[0];
+
+        if (SI32_CRC_A_read_result(SI32_CRC_0) != crc_received) {
+            // CRC Failed -- Transmit NACK Continue at top of while loop
+            packet[0] = 0xFF;
+            if (I2C_handler(packet, 1, 1))
+                return 0;
+            continue;
+        } else {
+            // CRC Passed -- Transmit ACK and break out of while loop
+            packet[0] = 0x00;
+            if (I2C_handler(packet, 1, 1))
+                return 0;
+            break;
+        }
+    }
+    return i;
+}
+
+//------------------------------------------------------------------------------
+// target_comm_transmit
+//------------------------------------------------------------------------------
+uint32_t target_comm_transmit(uint8_t* tx_buff, uint32_t length)
+{
+    uint8_t packet[PACKET_LENGTH];
+
+    uint32_t i;
+    uint32_t crc;
+
+    while (1) {
+        // 16-bit CRC-CCITT (poly: 0x1021, init: 0xFFFF)
+        SI32_CRC_A_enable_module(SI32_CRC_0);
+        SI32_CRC_A_select_polynomial_16_bit_1021(SI32_CRC_0);
+        SI32_CRC_A_enable_bit_reversal(SI32_CRC_0);
+        SI32_CRC_A_select_byte_mode(SI32_CRC_0);
+        SI32_CRC_A_initialize_seed_to_one(SI32_CRC_0);
+
+        // Load the packet header
+        // Load the packet header
+        packet[0] = ':';
+        packet[1] = 0x00;
+        packet[2] = length & 0xFF;
+        packet[3] = (length >> 8) & 0xFF;
+
+        if (I2C_handler(packet, PACKET_LENGTH, 0))
+            return 0;
+
+        for (i = 0; i < PACKET_LENGTH; i++) {
+            SI32_CRC_A_write_data(SI32_CRC_0, packet[i]);
+        }
+
+        if (I2C_handler(tx_buff, length, 0))
+            return 0;
+        for (i = 0; i < length; i++) {
+            // Write character to CRC engine
+            SI32_CRC_A_write_data(SI32_CRC_0, tx_buff[i]);
+        }
+
+        // Transmit the CRC
+        crc = SI32_CRC_A_read_result(SI32_CRC_0);
+
+        packet[0] = crc & 0xFF;
+        packet[1] = (crc >> 8) & 0xff;
+        if (I2C_handler(packet, 2, 0))
+            return 0;
+
+        // Wait for ACK
+        if (I2C_handler(packet, 1, 0))
+            return 0;
+        if (packet[0] == 0x00) {
+            break;
+        } else {
+            return 0;
+        }
+    }
+
+    return i;
+}
+#endif

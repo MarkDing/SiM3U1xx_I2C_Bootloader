@@ -66,7 +66,7 @@ int main(void)
 {
     // Initialize device and execute boot handler
     DEVICE_Init();
-    i2c_test();
+   // i2c_test();
     // Update Firmware or Jump to User Application
     if (trigger) {
         //Update Firmware
