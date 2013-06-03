@@ -141,8 +141,7 @@ int32_t I2C_hander(uint8_t *buf, uint32_t count)
         }
 
         if (SI32_I2C_A_is_stop_interrupt_pending(SI32_I2C_0)) { // I2C stop
-            SI32_I2C_0->CONTROL_CLR = SI32_I2C_A_CONTROL_STO_MASK | SI32_I2C_A_CONTROL_STOI_MASK
-                    | SI32_I2C_A_CONTROL_RXI_MASK;
+            SI32_I2C_0->CONTROL_CLR = SI32_I2C_A_CONTROL_STO_MASK | SI32_I2C_A_CONTROL_STOI_MASK;
             if (count)
                 break;
             I2C_data_ready = 1;
@@ -161,8 +160,8 @@ int32_t I2C_hander(uint8_t *buf, uint32_t count)
             } else {
                 SI32_I2C_A_send_nack(SI32_I2C_0); // send an NACK
             }
-
-            SI32_I2C_A_arm_rx(SI32_I2C_0); // Arm reception(RXARM=1)
+            if(count)
+                SI32_I2C_A_arm_rx(SI32_I2C_0); // Arm reception(RXARM=1)
             SI32_I2C_A_clear_rx_interrupt(SI32_I2C_0);
             SI32_I2C_A_clear_ack_interrupt(SI32_I2C_0);
         }
@@ -180,9 +179,13 @@ int32_t I2C_hander(uint8_t *buf, uint32_t count)
         }
 
         if (SI32_I2C_A_is_timer3_interrupt_pending(SI32_I2C_0)) {
-            //         break;
+            SI32_I2C_A_clear_timer3_interrupt(SI32_I2C_0);
+             break;
         }
         if (SI32_I2C_A_is_arblost_interrupt_pending(SI32_I2C_0)) {
+            SI32_I2C_A_clear_arblost_interrupt(SI32_I2C_0);
+            SI32_I2C_A_reset_module(SI32_I2C_0);
+            COMM_Init();
             break;
         }
     } while ((I2C_data_ready == 0));
@@ -200,12 +203,10 @@ uint32_t COMM_Receive(uint8_t* rx_buff, uint32_t length)
     uint16_t crc_received;
 
     uint32_t i;
-#if 0
-    SI32_I2C_A_is_start_interrupt_pending(SI32_I2C_0);
+
     while(1)
     {
-        SI32_I2C_A_is_rx_interrupt_pending(SI32_I2C_0);
-        //-----------------------------------------------------------
+         //-----------------------------------------------------------
         // Start of Frame ':'
         //-----------------------------------------------------------
         do
@@ -364,7 +365,7 @@ uint32_t COMM_Receive(uint8_t* rx_buff, uint32_t length)
             break;
         }
     }
-#endif
+
     return i;
 }
 

@@ -156,8 +156,11 @@ int32_t I2C_handler(uint8_t *buf, uint32_t count, uint8_t rw)
                 }
             } else { // NACK was received
                 SI32_I2C_A_set_stop (SI32_I2C_0);   // Set STO to terminte transfer
+                SI32_I2C_A_clear_tx_interrupt(SI32_I2C_0);  // clear TXI
+                SI32_I2C_A_clear_ack_interrupt(SI32_I2C_0); // clear ACKI
+                break;
                 // To reschedule transfer, set START then clear interrupt flags.
-                SI32_I2C_A_set_start(SI32_I2C_0);
+//               SI32_I2C_A_set_start(SI32_I2C_0);
             }
             SI32_I2C_A_clear_tx_interrupt(SI32_I2C_0);  // clear TXI
             SI32_I2C_A_clear_ack_interrupt(SI32_I2C_0); // clear ACKI
@@ -165,9 +168,9 @@ int32_t I2C_handler(uint8_t *buf, uint32_t count, uint8_t rw)
 
         if (SI32_I2C_A_is_timer3_interrupt_pending(SI32_I2C_0)) {
             SI32_I2C_A_clear_timer3_interrupt(SI32_I2C_0);
-           // SI32_I2C_A_reset_module(SI32_I2C_0);
-           // target_comm_init();
-           // break;
+            SI32_I2C_A_reset_module(SI32_I2C_0);
+            target_comm_init();
+            break;
         }
         if (SI32_I2C_A_is_arblost_interrupt_pending(SI32_I2C_0)) {
             SI32_I2C_A_clear_arblost_interrupt(SI32_I2C_0);

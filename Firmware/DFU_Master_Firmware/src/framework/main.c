@@ -50,9 +50,9 @@ void i2c_test()
     while (1) {
         for (i = 0; i < 7; i++)
             test_buf[i] = i + 1;
-        I2C_handler(test_buf, 8, 1); // write
+        I2C_handler(test_buf, 7, 0); // write
 
-#if 0
+#if 1
         for (i = 0; i < 7; i++)
             test_buf[i] = 0;
         I2C_handler(test_buf, 7, 1); // read
