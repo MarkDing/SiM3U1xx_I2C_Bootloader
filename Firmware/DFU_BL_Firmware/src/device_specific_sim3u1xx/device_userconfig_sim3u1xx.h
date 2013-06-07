@@ -54,7 +54,7 @@
 #define read_trigger_pin_package_64_pin() 			\
 	(SI32_PBSTD_A_read_pins(SI32_PBSTD_1) & BIT3)
 #define read_trigger_pin_package_40_pin() 			\
-	(SI32_PBSTD_A_read_pins(SI32_PBSTD_0) & BIT13)
+	(SI32_PBSTD_A_read_pins(SI32_PBSTD_0) & BIT14)
 
 
 //-----------------------------------------------

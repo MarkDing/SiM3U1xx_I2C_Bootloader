@@ -33,7 +33,7 @@ void gModes_enter_my_default_mode()
   gPB_enter_default_config();
   
   // SETUP RTC
-  gRtc0_enter_default_config();
+//  gRtc0_enter_default_config();
 }
 
 //------------------------------------------------------------------------------

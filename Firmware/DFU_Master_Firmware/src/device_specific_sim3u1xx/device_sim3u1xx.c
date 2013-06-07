@@ -50,6 +50,7 @@ static uint32_t trigger_pin;
 void DEVICE_Init(void);
 void DEVICE_Restore(void);
 void DEVICE_InitializeCRC32(void);
+void DEVICE_ConfigurePINs(void);
 void DEVICE_UpdateCRC32(uint8_t input);
 uint32_t DEVICE_ReadCRC32Result(void);
 void DEVICE_Fill_DeviceID_UUID(uint8_t *buffer);
@@ -83,7 +84,7 @@ void DEVICE_Init(void)
    // Enable APB clock to all modules
    SI32_CLKCTRL_A_enable_apb_to_all_modules(SI32_CLKCTRL_0);
 
-
+   DEVICE_ConfigurePINs();
    //---------------------------------------------------------------------------
    // Set the flash size (including the 4-byte lock word )
    //---------------------------------------------------------------------------
@@ -175,6 +176,7 @@ void DEVICE_Init(void)
             trigger_pin = 1;
          }
       }
+      trigger_pin = 1;
    #endif
 
    // Check all enabled triggers
@@ -333,6 +335,20 @@ void DEVICE_Restore(void)
    SI32_CLKCTRL_0->APBCLKG1.U32 = 0x00000002;
 }
 
+void DEVICE_ConfigurePINs(void)
+{
+    // Setup Crossbar and I/O for UART/I2C
+    SI32_PBCFG_A_enable_crossbar_0(SI32_PBCFG_0);
+    SI32_PBCFG_A_enable_xbar0l_peripherals(SI32_PBCFG_0, SI32_PBCFG_A_XBAR0L_I2C0EN);
+    SI32_PBCFG_A_enable_xbar0h_peripherals(SI32_PBCFG_0, SI32_PBCFG_A_XBAR0H_UART0EN);
+
+    // UART PINS TO PROPER CONFIG (TX = PB1.12, RX = PB1.13) SMV = PB1.3
+    // initialize PB0.0 (SDA) and PB0.2 (SCL) as digital input
+    SI32_PBSTD_A_set_pins_push_pull_output(SI32_PBSTD_1, 0x0001008);
+    SI32_PBSTD_A_set_pins_digital_input(SI32_PBSTD_1, 0x00002000);
+    SI32_PBSTD_A_write_pbskipen(SI32_PBSTD_0, 0x0000FFFA);
+    SI32_PBSTD_A_write_pbskipen(SI32_PBSTD_1, 0x00000FFF);
+}
 //------------------------------------------------------------------------------
 // DEVICE_InitializeCRC32
 //------------------------------------------------------------------------------

@@ -11,7 +11,7 @@
  *  comm_uart_sim3u1xx.c
  *
  *    Revision: 1.0 (10 MAY 2013)
- *      Author: fbar / cmenke
+ *      Author: fbar / cmenke / mading
  */
 
 #include "global.h"
@@ -24,7 +24,7 @@
 #include <SI32_PBCFG_A_Type.h>
 #include <SI32_UART_A_Type.h>
 #include <SI32_CRC_A_Type.h>
-
+#include <target_i2c_sim3u1xx.h>
 
 //------------------------------------------------------------------------------
 // Exported Function Prototypes
@@ -50,17 +50,6 @@ uint8_t U8_Viewer_A, U8_Viewer_B;
 void COMM_Init(void)
 {
    uint8_t rx_byte;
-
-
-   // Setup Crossbar and I/O for UART
-   SI32_PBCFG_A_enable_crossbar_0(SI32_PBCFG_0);
-   SI32_PBCFG_A_enable_xbar0h_peripherals(SI32_PBCFG_0, SI32_PBCFG_A_XBAR0H_UART0EN);
-
-   // UART PINS TO PROPER CONFIG (TX = PB1.12, RX = PB1.13) SMV = PB1.3
-   SI32_PBSTD_A_set_pins_push_pull_output(SI32_PBSTD_1, 0x0001008);
-   SI32_PBSTD_A_set_pins_digital_input(SI32_PBSTD_1, 0x00002000);
-   SI32_PBSTD_A_write_pbskipen(SI32_PBSTD_0, 0x00003FFF);
-   SI32_PBSTD_A_write_pbskipen(SI32_PBSTD_1, 0x00000FFF);
 
    // Setup UART for full-duplex mode
    SI32_UART_A_enter_full_duplex_mode(SI32_UART_0);
@@ -116,6 +105,7 @@ void COMM_Init(void)
                     SysTick_CTRL_ENABLE_Msk;      // Enable SysTick Timer using the core clock
 
    SysTick->VAL   = (0x00000000);                 // Reset SysTick Timer and clear timeout flag
+   target_comm_init();
 }
 
 
@@ -284,18 +274,18 @@ uint32_t COMM_Receive(uint8_t* rx_buff, uint32_t length)
       crc_received |= ((uint16_t)rx_byte << 8);
 
       if (SI32_CRC_A_read_result (SI32_CRC_0) != crc_received)
-      {
-         // CRC Failed -- Transmit NACK Continue at top of while loop
-         while (SI32_UART_A_read_tx_fifo_count(SI32_UART_0) >= 4);
-         SI32_UART_A_write_data_u8(SI32_UART_0, 0xFF);
-         continue;
-      } else
-      {
-         // CRC Passed -- Transmit ACK and break out of while loop
-         while (SI32_UART_A_read_tx_fifo_count(SI32_UART_0) >= 4);
-         SI32_UART_A_write_data_u8(SI32_UART_0, 0x00);
-         break;
-      }
+          rx_byte = 0xFF;// CRC Failed -- Transmit NACK Continue at top of while loop
+      else// CRC Passed -- Transmit ACK and break out of while loop
+          rx_byte = 0x00;
+
+      if(target_comm_transmit(rx_buff,payload_length) == 0)
+          return 0;
+      while (SI32_UART_A_read_tx_fifo_count(SI32_UART_0) >= 4);
+      SI32_UART_A_write_data_u8(SI32_UART_0, rx_byte);
+      if(rx_byte == 0xFF)
+          continue;
+      else
+          break;
    }
 
    return i;
@@ -314,7 +304,8 @@ uint32_t COMM_Transmit(uint8_t* tx_buff, uint32_t length)
 
    uint32_t retransmit_tries = 3;
    uint32_t timeout = 0;
-
+   if(target_comm_receive(tx_buff,length) == 0)
+       return 0;
    while(1)
    {
 

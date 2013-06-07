@@ -50,13 +50,15 @@ void i2c_test()
         test_buf[i] = i + 5;
     }
     while (1) {
-        if (I2C_handler(test_buf, 7)) {
+        if(COMM_Receive(test_buf, 7)==0) {
+      //  if (I2C_handler(test_buf, 7)) {
             tmp = 5;
-            //            printf("finished 7 bytes transfer\n");
-        } else {
-            tmp = 4;
-            //           printf("transfer not complete\n");
         }
+#if 1
+        if(COMM_Transmit(test_buf, 7)) {
+            tmp = 6;
+        }
+#endif
     }
 }
 #endif
@@ -67,7 +69,7 @@ int main(void)
 {
     // Initialize device and execute boot handler
     DEVICE_Init();
-//    i2c_test();
+    //i2c_test();
     // Update Firmware or Jump to User Application
     if (trigger) {
         //Update Firmware
@@ -95,7 +97,7 @@ int main(void)
 #ifdef PRECISION32
 void user_app_jump(void)
 {
-    __asm volatile ("ldr r0, =0x00002000");
+    __asm volatile ("ldr r0, =0x00004000");
     __asm volatile ("ldr sp, [r0]");
     __asm volatile ("ldr pc, [r0, #4] ");
 }

@@ -19,7 +19,7 @@
 //------------------------------------------------------------------------------
 #include "myLinkerOptions.sct"
 
-#define DFU_APP_START                   0x00002000
+#define DFU_APP_START                   0x00004000
 
 #define SI32_MCU_FLASH_BASE             (0x00000000 + DFU_APP_START)
 #define SI32_MCU_RAM_BASE               0x20000000
