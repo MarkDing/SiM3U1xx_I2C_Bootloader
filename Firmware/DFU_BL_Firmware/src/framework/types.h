@@ -65,7 +65,7 @@ typedef struct DFU_Cmd_Packet_Struct
    uint16_t wValue;
    uint16_t wIndex;
    uint16_t wLength;  // Size of the Data Field
-   uint8_t Data[DFU_CMD_BUFFER_SIZE];
+   uint8_t Data[DFU_CMD_BUFFER_SIZE-7];
 } DFU_Cmd_Packet;
 #pragma pack(pop)
 

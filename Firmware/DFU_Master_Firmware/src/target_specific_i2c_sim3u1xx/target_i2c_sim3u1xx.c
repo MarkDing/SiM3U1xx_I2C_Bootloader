@@ -66,7 +66,7 @@ int32_t I2C_handler(uint8_t *buf, uint32_t count, uint8_t rw)
     uint8_t I2C_data_ready = 0 , start = 0;
 
     if (count == 0)
-        return false;
+        return 0;
     SI32_I2C_0->CONTROL_CLR = 0x3FF00; // clear all interrupt flags.
     SI32_I2C_A_set_start(SI32_I2C_0);
     do {
@@ -136,7 +136,7 @@ int32_t I2C_handler(uint8_t *buf, uint32_t count, uint8_t rw)
             SI32_I2C_A_clear_arblost_interrupt(SI32_I2C_0);
             break;
         }
-#if 0
+#if 1
         if (start == 1) { // timeout check
             if (SI32_I2C_0->CONTROL.U32 & 0x3FF00) { // check bit [17:8] interrupt flag
                 SysTick->VAL = (0x00000000); // Reset SysTick Timer and clear timeout flag
@@ -147,9 +147,7 @@ int32_t I2C_handler(uint8_t *buf, uint32_t count, uint8_t rw)
         }
 #endif
     } while ((I2C_data_ready == 0));
-    if(SI32_I2C_A_is_start_interrupt_pending(SI32_I2C_0)) {
-        start = 1;
-    }
+
     return (I2C_data_ready ? 0 : -1);
 }
 #define READ 1
@@ -216,7 +214,7 @@ uint32_t target_comm_receive(uint8_t* rx_buff, uint32_t length)
             break;
         }
     }
-    return i;
+    return 1;
 }
 
 //------------------------------------------------------------------------------
@@ -266,7 +264,7 @@ uint32_t target_comm_transmit(uint8_t* tx_buff, uint32_t length)
         if (i == 0x00) {
             break;
         } else {
-            return 0;
+            break; //return 0;
         }
     }
 

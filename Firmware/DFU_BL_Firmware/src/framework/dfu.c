@@ -106,6 +106,9 @@ void DFU_Firmware_Update(uint32_t app_image_state)
       {
          if(COMM_Receive(Dfu_GetStatusRequest_Buffer, DFU_GETSTATUSREQUEST_BUFFER_SIZE))
          {
+             if(queue_count1 < QUEUE_SIZE) {
+                 queue_buffer[0][queue_count1++] = cmd->bRequest;
+             }
             if(getstatus_request->bRequest != DFU_GETSTATUS)
             {
                for(int i = 0; i < DFU_GETSTATUSREQUEST_BUFFER_SIZE; i++)

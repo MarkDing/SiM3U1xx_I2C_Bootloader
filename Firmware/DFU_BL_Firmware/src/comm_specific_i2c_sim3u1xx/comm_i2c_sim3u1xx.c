@@ -98,7 +98,7 @@ int32_t I2C_handler(uint8_t *buf, uint32_t count)
     uint8_t I2C_data_ready = 0, start = 0;
 
     if (count == 0)
-        return -1;
+        return 0;
     do {
         if (SI32_I2C_A_is_start_interrupt_pending(SI32_I2C_0)) { //< I2C start
             uint32_t tmp = SI32_I2C_A_read_data(SI32_I2C_0);
