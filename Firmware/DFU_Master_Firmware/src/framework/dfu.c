@@ -38,7 +38,7 @@ uint32_t upload_length;
  uint8_t Dfu_Cmd_Buffer[DFU_CMD_BUFFER_SIZE];
  uint8_t Dfu_GetStatusRequest_Buffer[DFU_GETSTATUSREQUEST_BUFFER_SIZE];
 
- #define QUEUE_SIZE 30
+#define QUEUE_SIZE 30
 #define QUEUE_NUMBER 2
 uint32_t queue_count1 = 0;
 uint32_t queue_count2 = 0;
@@ -150,10 +150,9 @@ void DFU_Firmware_Update(uint32_t app_image_state)
          if(cmd->bRequest == DFU_GETSTATE)
          {
             Command_Received = 0;   // Clear Command Received Flag
-
-            state_reply->bState = Dfu_State;
-
+//            state_reply->bState = Dfu_State;
             num_bytes = COMM_Transmit((uint8_t*)state_reply, SIZEOF_DFU_State_Reply_Packet);
+            Dfu_State = state_reply->bState;
             if(num_bytes == 0)
             {
                Dfu_State = dfuERROR;
@@ -167,7 +166,7 @@ void DFU_Firmware_Update(uint32_t app_image_state)
          else if (cmd->bRequest == DFU_GETINFO)
          {
             Command_Received = 0;   // Clear Command Received Flag
-
+/*
             getinfo_reply->length = (uint16_t) SIZEOF_DFU_GetInfo_Reply_Packet;
             getinfo_reply->bBootloaderRevision_Major = BOOTLOADER_REVISION_MAJOR;
             getinfo_reply->bBootloaderRevision_Minor = BOOTLOADER_REVISION_MINOR;
@@ -177,7 +176,7 @@ void DFU_Firmware_Update(uint32_t app_image_state)
 
             // Copy 16-byte device ID and 16-byte UUID from DEVICE module
             DEVICE_Fill_DeviceID_UUID(&(getinfo_reply->bDeviceID[0]));
-
+*/
             num_bytes = COMM_Transmit((uint8_t*)getinfo_reply, SIZEOF_DFU_GetInfo_Reply_Packet);
             if(num_bytes == 0)
             {
@@ -220,13 +219,16 @@ void DFU_Firmware_Update(uint32_t app_image_state)
                if(Command_Received && cmd->bRequest == DFU_GETSTATUS)
                {
                   Command_Received = 0;   // Clear Command Received Flag
-
+/*
                   status_reply->bStatus = Dfu_Status;
                   status_reply->wPollTimeout_Low = 0;
                   status_reply->bPollTimeout_High = 0;
                   status_reply->bState = Dfu_State;
                   status_reply->iString = 0;
+*/
                   num_bytes = COMM_Transmit((uint8_t*)status_reply, SIZEOF_DFU_Status_Reply_Packet);
+                  Dfu_Status = status_reply->bStatus;
+                  Dfu_State = status_reply->bState;
                   if(num_bytes == 0)
                   {
                      Dfu_State = dfuERROR;
@@ -323,14 +325,16 @@ void DFU_Firmware_Update(uint32_t app_image_state)
                if(Command_Received && cmd->bRequest == DFU_GETSTATUS)
                {
                   Command_Received = 0;   // Clear Command Received Flag
-
+/*
                   status_reply->bStatus = Dfu_Status;
                   status_reply->wPollTimeout_Low = 0;
                   status_reply->bPollTimeout_High = 0;
                   status_reply->bState = Dfu_State;
                   status_reply->iString = 0;
-
+*/
                   num_bytes = COMM_Transmit((uint8_t*)status_reply, SIZEOF_DFU_Status_Reply_Packet);
+                  Dfu_Status = status_reply->bStatus;
+                  Dfu_State = status_reply->bState;
                   if(num_bytes == 0)
                   {
                      Dfu_State = dfuERROR;
@@ -386,13 +390,17 @@ void DFU_Firmware_Update(uint32_t app_image_state)
                       Dfu_State = dfuERROR;
                   }
 
+/*
                   // Send the status reply
                   status_reply->bStatus = Dfu_Status;
                   status_reply->wPollTimeout_Low = 0;
                   status_reply->bPollTimeout_High = 0;
                   status_reply->bState = Dfu_State;
                   status_reply->iString = 0;
+*/
                   num_bytes = COMM_Transmit((uint8_t*)status_reply, SIZEOF_DFU_Status_Reply_Packet);
+                  Dfu_Status = status_reply->bStatus;
+                  Dfu_State = status_reply->bState;
                   if(num_bytes == 0)
                   {
                      Dfu_State = dfuERROR;
@@ -456,14 +464,16 @@ void DFU_Firmware_Update(uint32_t app_image_state)
                if(Command_Received && cmd->bRequest == DFU_GETSTATUS)
                {
                   Command_Received = 0;   // Clear Command Received Flag
-
+/*
                   status_reply->bStatus = Dfu_Status;
                   status_reply->wPollTimeout_Low = 0;
                   status_reply->bPollTimeout_High = 0;
                   status_reply->bState = Dfu_State;
                   status_reply->iString = 0;
-
+*/
                   num_bytes = COMM_Transmit((uint8_t*)status_reply, SIZEOF_DFU_Status_Reply_Packet);
+                  Dfu_Status = status_reply->bStatus;
+                  Dfu_State = status_reply->bState;
                   if(num_bytes == 0)
                   {
                      Dfu_State = dfuERROR;
@@ -499,14 +509,17 @@ void DFU_Firmware_Update(uint32_t app_image_state)
                   {
                      Dfu_State = dfuERROR;
                   }
-
+/*
                   // Send the status reply
                   status_reply->bStatus = Dfu_Status;
                   status_reply->wPollTimeout_Low = 0;
                   status_reply->bPollTimeout_High = 0;
                   status_reply->bState = Dfu_State;
                   status_reply->iString = 0;
+*/
                   num_bytes = COMM_Transmit((uint8_t*)status_reply, SIZEOF_DFU_Status_Reply_Packet);
+                  Dfu_Status = status_reply->bStatus;
+                  Dfu_State = status_reply->bState;
                   if(num_bytes == 0)
                   {
                      Dfu_State = dfuERROR;
@@ -593,13 +606,16 @@ void DFU_Firmware_Update(uint32_t app_image_state)
                {
 
                   Command_Received = 0;   // Clear Command Received Flag
-
+/*
                   status_reply->bStatus = Dfu_Status;
                   status_reply->wPollTimeout_Low = 0;
                   status_reply->bPollTimeout_High = 0;
                   status_reply->bState = Dfu_State;
                   status_reply->iString = 0;
+*/
                   num_bytes = COMM_Transmit((uint8_t*)status_reply, SIZEOF_DFU_Status_Reply_Packet);
+                  Dfu_Status = status_reply->bStatus;
+                  Dfu_State = status_reply->bState;
                   if(num_bytes == 0)
                   {
                      Dfu_State = dfuERROR;

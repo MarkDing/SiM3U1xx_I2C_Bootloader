@@ -27,37 +27,28 @@ int main()
    // msTicks_10 increments every 10 ms (100 Hz), driven by RTC0 (myRtc0.c)
    // The _last variables store the last seen value so the loop knows when to
    // update.
-   uint32_t msTicks_last, msTicks_10_last,flag =0;
-
+	 uint32_t msTicks_last = 0;
    // Enter the default operating mode for this application (gModes.c)
    gModes_enter_my_default_mode();
 
    // Print a starting message
-   printf("hello world\n");
+//   printf("hello world\n");
 
    // Loop forever...
    while (1)
    {
-     // If msTicks has changed...
-     if (msTicks != msTicks_last)
-     {
-        // Update every 1 second
-        if(!(msTicks % 1000))
+        if(msTicks_last < msTicks)
         {
-
+					msTicks_last = msTicks + 300;
            // Invert the state of the LED driver (P1.0)
         	SI32_PBSTD_A_toggle_pins(SI32_PBSTD_1, 1<<0);
            // Invert the state of the LED driver (P1.1)
         	SI32_PBSTD_A_toggle_pins(SI32_PBSTD_1, 1<<1);
            // Invert the state of the LED driver (P2.10)
         	SI32_PBSTD_A_toggle_pins(SI32_PBSTD_2, 1<<10);
-           // Invert the state of the LED driver (P2.11)
+	            // Invert the state of the LED driver (P2.11)
         	SI32_PBSTD_A_toggle_pins(SI32_PBSTD_2, 1<<11);
         }
-
-        // Save current msTicks value as last seen
-        msTicks_last = msTicks;
-     }// if msTicks changed
    }// while(1)
 }
 

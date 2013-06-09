@@ -1,5 +1,5 @@
-del *.bak
-del *.dep
+del /s *.bak
+del /s *.dep
 del /s *.crf
 del /s *.o
 del /s *.d

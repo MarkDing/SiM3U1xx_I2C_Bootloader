@@ -48,7 +48,7 @@
 //	Any valid 32-bit address containing the entry point
 // of the user code
 //
-#define USER_APP_START_ADDR 0x00004000
+#define USER_APP_START_ADDR 0x00002000
 
 
 

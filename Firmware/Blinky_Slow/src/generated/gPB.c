@@ -54,23 +54,25 @@ void gPB_enter_default_config()
    // Enable Crossbar 1, where the example drives LEDs, samples buttons, and
    // outputs the RTC clock.
    SI32_PBCFG_A_enable_crossbar_1(SI32_PBCFG_0);
-
+	 SI32_PBCFG_A_enable_crossbar_0(SI32_PBCFG_0);
+	
    // GPIO Port Bank setup
-   // Enable the LED drivers (P2.10, P2.11)
-   SI32_PBSTD_A_set_pins_push_pull_output(SI32_PBSTD_2, 0x00000C00);
-
-   // Enable switch sensing (P2.10, P2.11)
-   SI32_PBSTD_A_set_pins_digital_input(SI32_PBSTD_2, 0x00000300);
+   // Enable the LED drivers (P1.0, P1.1)
+   SI32_PBSTD_A_set_pins_push_pull_output(SI32_PBSTD_1, 0x0000003);
+   SI32_PBSTD_A_set_pins_push_pull_output(SI32_PBSTD_2, 0x0000c00);
+   // Enable switch sensing (P0.14, P0.15)
+   SI32_PBSTD_A_set_pins_digital_input(SI32_PBSTD_0, 0x0000C000);
 
    // RTC Port Bank setup
    // Set the RTC oscillator pins to analog mode (PB0.9, PB0.10)
    SI32_PBSTD_A_set_pins_analog(SI32_PBSTD_0, 0x00000600);
-
+/*
    // Ouptut the RTC0 clock (PB2.7)
    SI32_PBSTD_A_set_pins_push_pull_output(SI32_PBSTD_2, 0x00000080);
    SI32_PBSTD_A_write_pbskipen(SI32_PBSTD_2, 0x0000007F);
    SI32_PBCFG_A_enable_xbar1_peripherals(SI32_PBCFG_0,
       SI32_PBCFG_A_XBAR1_RTC0EN);
+*/			
 }
 
 //---eof------------------------------------------------------------------------

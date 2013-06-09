@@ -125,7 +125,6 @@ uint32_t COMM_Receive(uint8_t* rx_buff, uint32_t length)
 
    while(1)
    {
-
       //-----------------------------------------------------------
       // Start of Frame ':'
       //-----------------------------------------------------------
@@ -278,7 +277,7 @@ uint32_t COMM_Receive(uint8_t* rx_buff, uint32_t length)
       else// CRC Passed -- Transmit ACK and break out of while loop
           rx_byte = 0x00;
 
-      if(target_comm_transmit(rx_buff,payload_length) == 0)
+      if(target_comm_transmit(rx_buff,payload_length))
           return 0;
       while (SI32_UART_A_read_tx_fifo_count(SI32_UART_0) >= 4);
       SI32_UART_A_write_data_u8(SI32_UART_0, rx_byte);
@@ -304,7 +303,7 @@ uint32_t COMM_Transmit(uint8_t* tx_buff, uint32_t length)
 
    uint32_t retransmit_tries = 3;
    uint32_t timeout = 0;
-   if(target_comm_receive(tx_buff,length) == 0)
+   if(target_comm_receive(tx_buff,length))
        return 0;
    while(1)
    {

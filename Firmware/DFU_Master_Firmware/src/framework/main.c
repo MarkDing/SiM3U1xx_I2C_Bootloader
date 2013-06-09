@@ -11,7 +11,7 @@
  * main.c
  *
  *  Created on: February 4, 2013
- *      Author: fbar / cmenke
+ *      Author: fbar / cmenke / mading
  */
 
 #include "global.h"
@@ -39,32 +39,7 @@ void mySystemInit(void)
 {
     return;
 }
-extern void target_comm_init(void);
-extern int32_t I2C_handler(uint8_t *buf, uint32_t count, uint8_t rw);
-uint8_t test_buf[32];
-void i2c_test()
-{
-    uint32_t i,tmp;
-    target_comm_init();
 
-
-    while (1) {
-        for (i = 0; i < 7; i++)
-            test_buf[i] = i + 1;
-//        if(I2C_handler(test_buf, 7, 0)) { // write
-        if(target_comm_transmit(test_buf,7)== 0){
-            tmp = 5;
-        }
-#if 1
-        for (i = 0; i < 7; i++)
-            test_buf[i] = 0;
-        if(target_comm_receive(test_buf,7) == 0) {
-//        if(I2C_handler(test_buf, 7, 1)){ // read
-            tmp = 6;
-        }
-#endif
-    }
-}
 //------------------------------------------------------------------------------
 // Main Routine
 //------------------------------------------------------------------------------
@@ -72,7 +47,7 @@ int main(void)
 {
     // Initialize device and execute boot handler
     DEVICE_Init();
-    //i2c_test();
+
     // Update Firmware or Jump to User Application
     if (trigger) {
         //Update Firmware
@@ -100,7 +75,7 @@ int main(void)
 #ifdef PRECISION32
 void user_app_jump(void)
 {
-    __asm volatile ("ldr r0, =0x00004000");
+    __asm volatile ("ldr r0, =0x00002000");
     __asm volatile ("ldr sp, [r0]");
     __asm volatile ("ldr pc, [r0, #4] ");
 }
@@ -109,7 +84,6 @@ __asm void user_app_jump(void)
 {
     LDR R0, =USER_APP_START_ADDR
     LDR SP, [R0]; Initialze stack pointer
-    LDR PC, [R0,
-#4]              ; Initialize program counter
+    LDR PC, [R0,#4] ; Initialize program counter
 }
 #endif

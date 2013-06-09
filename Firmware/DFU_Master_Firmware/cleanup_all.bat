@@ -1,5 +1,5 @@
-del *.bak
-del *.dep
+del /s *.bak
+del /s *.dep
 del /s *.crf
 del /s *.o
 del /s *.d
@@ -11,4 +11,3 @@ del /s *.tra
 del /s *.lst
 del /s *.mading
 rmdir keil/debug /s /q
-

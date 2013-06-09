@@ -39,29 +39,7 @@ void mySystemInit(void)
 {
     return;
 }
-#if 1
-extern int32_t I2C_handler(uint8_t *buf, uint32_t count);
-uint8_t test_buf[64];
-void i2c_test()
-{
-    volatile uint32_t tmp;
-    COMM_Init();
-    for (int i = 0; i < 7; i++) {
-        test_buf[i] = i + 5;
-    }
-    while (1) {
-        if(COMM_Receive(test_buf, 7)==0) {
-      //  if (I2C_handler(test_buf, 7)) {
-            tmp = 5;
-        }
-#if 1
-        if(COMM_Transmit(test_buf, 7)) {
-            tmp = 6;
-        }
-#endif
-    }
-}
-#endif
+
 //------------------------------------------------------------------------------
 // Main Routine
 //------------------------------------------------------------------------------
@@ -69,7 +47,7 @@ int main(void)
 {
     // Initialize device and execute boot handler
     DEVICE_Init();
-    //i2c_test();
+
     // Update Firmware or Jump to User Application
     if (trigger) {
         //Update Firmware
@@ -97,7 +75,7 @@ int main(void)
 #ifdef PRECISION32
 void user_app_jump(void)
 {
-    __asm volatile ("ldr r0, =0x00004000");
+    __asm volatile ("ldr r0, =0x00002000");
     __asm volatile ("ldr sp, [r0]");
     __asm volatile ("ldr pc, [r0, #4] ");
 }
@@ -106,7 +84,6 @@ __asm void user_app_jump(void)
 {
     LDR R0, =USER_APP_START_ADDR
     LDR SP, [R0]; Initialze stack pointer
-    LDR PC, [R0,
-#4]              ; Initialize program counter
+    LDR PC, [R0,#4] ; Initialize program counter
 }
 #endif

@@ -63,16 +63,16 @@ void target_comm_init(void)
 int32_t I2C_handler(uint8_t *buf, uint32_t count, uint8_t rw)
 {
     uint8_t * ptr = buf;
-    uint8_t I2C_data_ready = 0 , start = 0;
+    uint8_t I2C_data_ready = 0 , seconds = 0;
 
     if (count == 0)
         return 0;
-    SI32_I2C_0->CONTROL_CLR = 0x3FF00; // clear all interrupt flags.
+    if( SI32_I2C_0->CONTROL.STA || SI32_I2C_0->CONTROL.STO)
+        SI32_I2C_A_reset_module(SI32_I2C_0); // Reset I2C module for abnormal case
     SI32_I2C_A_set_start(SI32_I2C_0);
     do {
         if (SI32_I2C_A_is_start_interrupt_pending(SI32_I2C_0)) { // I2C start
             uint32_t tmp = I2C_ADDRESS | rw;
-            start = 1;
             SI32_I2C_A_set_byte_count(SI32_I2C_0, 1); // set bytes count(BC)
             SI32_I2C_A_write_data(SI32_I2C_0,tmp);
             SI32_I2C_A_arm_tx(SI32_I2C_0); // Arm transmission(TXARM=1)
@@ -136,16 +136,12 @@ int32_t I2C_handler(uint8_t *buf, uint32_t count, uint8_t rw)
             SI32_I2C_A_clear_arblost_interrupt(SI32_I2C_0);
             break;
         }
-#if 1
-        if (start == 1) { // timeout check
-            if (SI32_I2C_0->CONTROL.U32 & 0x3FF00) { // check bit [17:8] interrupt flag
-                SysTick->VAL = (0x00000000); // Reset SysTick Timer and clear timeout flag
-            } else {
-                if ((SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk))
-                    break;
-            }
+        if ((SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk)) {// timeout check
+            SysTick->VAL = (0x00000000); // Reset SysTick Timer and clear timeout flag
+            seconds++;
+            if(seconds > 2) // wait for 2 seconds
+                break;
         }
-#endif
     } while ((I2C_data_ready == 0));
 
     return (I2C_data_ready ? 0 : -1);
@@ -156,7 +152,7 @@ int32_t I2C_handler(uint8_t *buf, uint32_t count, uint8_t rw)
 //------------------------------------------------------------------------------
 // target_comm_receive
 //------------------------------------------------------------------------------
-uint32_t target_comm_receive(uint8_t* rx_buff, uint32_t length)
+int32_t target_comm_receive(uint8_t* rx_buff, uint32_t length)
 {
     // ':',0,lsb_len, msb_len, lsb CRC, msb CRC
     uint8_t packet[PACKET_LENGTH];
@@ -167,13 +163,13 @@ uint32_t target_comm_receive(uint8_t* rx_buff, uint32_t length)
     //return length;
     while (1) {
         if (I2C_handler(packet, PACKET_LENGTH, READ))
-            return 0;
+            return -1;
 
         //-----------------------------------------------------------
         // Start of Frame ':'
         //-----------------------------------------------------------
         if (packet[0] != ':')
-            return 0;
+            return -1;
 
         // 16-bit CRC-CCITT (poly: 0x1021, init: 0xFFFF)
         SI32_CRC_A_enable_module(SI32_CRC_0);
@@ -195,7 +191,7 @@ uint32_t target_comm_receive(uint8_t* rx_buff, uint32_t length)
         // Payload
         //-----------------------------------------------------------
         if (I2C_handler(rx_buff, payload_length, READ))
-            return 0;
+            return -1;
         for (i = 0; i < payload_length; i++) {
             SI32_CRC_A_write_data(SI32_CRC_0, rx_buff[i]);
         }
@@ -204,23 +200,23 @@ uint32_t target_comm_receive(uint8_t* rx_buff, uint32_t length)
             // CRC Failed -- Transmit NACK Continue at top of while loop
             packet[0] = 0xFF;
             if (I2C_handler(packet, 1, WRITE))
-                return 0;
+                return -1;
             return 0;
         } else {
             // CRC Passed -- Transmit ACK and break out of while loop
             packet[0] = 0x00;
             if (I2C_handler(packet, 1, WRITE))
-                return 0;
+                return -1;
             break;
         }
     }
-    return 1;
+    return 0;
 }
 
 //------------------------------------------------------------------------------
 // target_comm_transmit
 //------------------------------------------------------------------------------
-uint32_t target_comm_transmit(uint8_t* tx_buff, uint32_t length)
+int32_t target_comm_transmit(uint8_t* tx_buff, uint32_t length)
 {
     uint8_t packet[PACKET_LENGTH];
 
@@ -252,22 +248,17 @@ uint32_t target_comm_transmit(uint8_t* tx_buff, uint32_t length)
     packet[4] = crc & 0xFF;
     packet[5] = (crc >> 8) & 0xff;
 
-    while (1) {
-        if (I2C_handler(packet, PACKET_LENGTH, WRITE))
-            return 0;
-        if (I2C_handler(tx_buff, length, WRITE))
-            return 0;
+    if (I2C_handler(packet, PACKET_LENGTH, WRITE))
+        return -1;
+    if (I2C_handler(tx_buff, length, WRITE))
+        return -1;
 
-        // Wait for ACK
-        if (I2C_handler((uint8_t*)&i, 1, READ))
-            return 0;
-        if (i == 0x00) {
-            break;
-        } else {
-            break; //return 0;
-        }
-    }
+    // Wait for ACK
+    if (I2C_handler(packet, 1, READ))
+        return -1;
+    if (packet[0] == 0xFF)
+        return -1;
 
-    return length;
+    return 0;
 }
 #endif

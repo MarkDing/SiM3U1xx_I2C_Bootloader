@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>I2C</TargetName>
+      <TargetName>Master MCU</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -44,7 +44,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\debug\sim3u1xx\i2c\</OutputDirectory>
-          <OutputName>sim3u1xx_i2c_bootloader</OutputName>
+          <OutputName>sim3u1xx_master_mcu</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
@@ -348,9 +348,9 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls>--c99 --gnu</MiscControls>
-              <Define>NDEBUG,  MCU_FAMILY=SiM3U1, COMM_PROTOCOL=I2C</Define>
+              <Define>NDEBUG,  MCU_FAMILY=SiM3U1, COMM_PROTOCOL=UART</Define>
               <Undefine></Undefine>
-              <IncludePath>..\src\framework;C:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU;C:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules;C:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx</IncludePath>
+              <IncludePath>..\src\target_specific_i2c_sim3u1xx;..\src\framework;C:\SiLabs\32bit\si32-1.1.1\si32Hal\CPU;C:\SiLabs\32bit\si32-1.1.1\si32Hal\SI32_Modules;C:\SiLabs\32bit\si32-1.1.1\si32Hal\sim3u1xx</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -519,17 +519,32 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Comm_Specific_Files (I2C)</GroupName>
+          <GroupName>Comm Specific Files (UART)</GroupName>
           <Files>
             <File>
-              <FileName>comm_i2c_sim3u1xx.c</FileName>
+              <FileName>comm_uart_sim3u1xx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\src\comm_specific_i2c_sim3u1xx\comm_i2c_sim3u1xx.c</FilePath>
+              <FilePath>..\src\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.c</FilePath>
             </File>
             <File>
-              <FileName>comm_i2c_sim3u1xx.h</FileName>
+              <FileName>comm_uart_sim3u1xx.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\src\comm_specific_i2c_sim3u1xx\comm_i2c_sim3u1xx.h</FilePath>
+              <FilePath>..\src\comm_specific_uart_sim3u1xx\comm_uart_sim3u1xx.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Comm Specific Files (I2C)</GroupName>
+          <Files>
+            <File>
+              <FileName>target_i2c_sim3u1xx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\target_specific_i2c_sim3u1xx\target_i2c_sim3u1xx.c</FilePath>
+            </File>
+            <File>
+              <FileName>target_i2c_sim3u1xx.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\src\target_specific_i2c_sim3u1xx\target_i2c_sim3u1xx.h</FilePath>
             </File>
           </Files>
         </Group>
