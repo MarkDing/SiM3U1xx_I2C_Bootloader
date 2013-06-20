@@ -6,8 +6,6 @@
 // http://developer.silabs.com/legal/version/v10/License_Agreement_v10.htm
 // Original content and implementation provided by Silicon Laboratories.
 //------------------------------------------------------------------------------
-#ifndef __COMM_I2C_SIM3U1XX_H__
-#define __COMM_I2C_SIM3U1XX_H__
 /**
  *  @file comm_i2c_sim3u1xx.h
  *  @brief I2C communication code header file
@@ -16,6 +14,24 @@
  *  @date: 31 May 2013
  *  @author: Mark Ding
  */
+
+/**
+ * @defgroup group_comm_I2C I2C communication module
+ * @brief I2C communication protocol code
+ *
+ *  @section Sec_ModDescription Module Description
+ *  I2C communication module . This module contains I2C hardware initial code. I2C
+ *  low level communication code. it contains transmit function @ref COMM_Transmit(),
+ *  receive function @ref COMM_Receive(), communication initialization function
+ *  @ref COMM_Init(), I2C low level send/receive function @ref I2C_handler()
+ *
+ *
+ */
+
+
+
+#ifndef __COMM_I2C_SIM3U1XX_H__
+#define __COMM_I2C_SIM3U1XX_H__
 
 /**
  *  @def COMM_GET_AHB_CLOCK() 20000000
@@ -85,5 +101,5 @@ uint32_t COMM_Receive(uint8_t* rx_buff, uint32_t length);
  * @return length
  */
 uint32_t COMM_Transmit(uint8_t* tx_buff, uint32_t length);
-
 #endif
+

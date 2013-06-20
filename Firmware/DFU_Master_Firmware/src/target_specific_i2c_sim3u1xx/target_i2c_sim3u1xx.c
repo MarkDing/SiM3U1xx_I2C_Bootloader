@@ -25,11 +25,6 @@
 #include <SI32_I2C_A_Type.h>
 #include <SI32_CRC_A_Type.h>
 #include <target_i2c_sim3u1xx.h>
-/**
- * \def I2C_ADDRESS
- * \brief I2C slave address 0xF0
- */
-#define I2C_ADDRESS 0xF0
 
 void target_comm_init(void)
 {
@@ -146,9 +141,7 @@ int32_t I2C_handler(uint8_t *buf, uint32_t count, uint8_t rw)
 
     return (I2C_data_ready ? 0 : -1);
 }
-#define READ 1
-#define WRITE 0
-#define PACKET_LENGTH 6
+
 //------------------------------------------------------------------------------
 // target_comm_receive
 //------------------------------------------------------------------------------
