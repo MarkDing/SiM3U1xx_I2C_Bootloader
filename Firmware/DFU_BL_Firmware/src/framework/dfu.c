@@ -38,11 +38,6 @@ uint32_t upload_length;
  uint8_t Dfu_Cmd_Buffer[DFU_CMD_BUFFER_SIZE];
  uint8_t Dfu_GetStatusRequest_Buffer[DFU_GETSTATUSREQUEST_BUFFER_SIZE];
 
-#define QUEUE_SIZE 30
-#define QUEUE_NUMBER 2
-uint32_t queue_count1 = 0;
-uint32_t queue_count2 = 0;
-uint8_t queue_buffer[QUEUE_NUMBER][QUEUE_SIZE];
 
 //------------------------------------------------------------------------------
 // DFU_Firmware_Update
@@ -96,9 +91,6 @@ void DFU_Firmware_Update(uint32_t app_image_state)
    // Start the DFU State Machine
    while(1)
    {
-       if(queue_count2 < QUEUE_SIZE) {
-           queue_buffer[1][queue_count2++] = Dfu_State;
-       }
       //----------------------------------------------------
       // Get Commands
       //----------------------------------------------------
@@ -106,9 +98,6 @@ void DFU_Firmware_Update(uint32_t app_image_state)
       {
          if(COMM_Receive(Dfu_GetStatusRequest_Buffer, DFU_GETSTATUSREQUEST_BUFFER_SIZE))
          {
-             if(queue_count1 < QUEUE_SIZE) {
-                 queue_buffer[0][queue_count1++] = cmd->bRequest;
-             }
             if(getstatus_request->bRequest != DFU_GETSTATUS)
             {
                for(int i = 0; i < DFU_GETSTATUSREQUEST_BUFFER_SIZE; i++)
@@ -129,9 +118,6 @@ void DFU_Firmware_Update(uint32_t app_image_state)
       {
          if(COMM_Receive(Dfu_Cmd_Buffer, DFU_CMD_BUFFER_SIZE))
          {
-             if(queue_count1 < QUEUE_SIZE) {
-                 queue_buffer[0][queue_count1++] = cmd->bRequest;
-             }
             Command_Received = 1;
          } else
          {

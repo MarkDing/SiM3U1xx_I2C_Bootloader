@@ -176,7 +176,7 @@ void DEVICE_Init(void)
             trigger_pin = 1;
          }
       }
-//      trigger_pin = 1;
+      trigger_pin = 1;
    #endif
 
    // Check all enabled triggers
